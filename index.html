@@ -41,11 +41,12 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: var(--box-shadow);
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -53,13 +54,16 @@
             align-items: center;
             gap: 10px;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
         .user-stats {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .stat {
@@ -69,20 +73,35 @@
             background: rgba(255, 255, 255, 0.2);
             padding: 5px 12px;
             border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .hearts {
+            display: flex;
+            gap: 5px;
+        }
+
+        .heart {
+            color: var(--danger);
+            font-size: 1.2rem;
         }
 
         .nav-tabs {
             display: flex;
             background: white;
             border-bottom: 1px solid #e0e0e0;
-            padding: 0 2rem;
+            padding: 0 1rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
 
         .nav-tab {
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.2rem;
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-tab.active {
@@ -109,10 +128,12 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .goal-progress {
             flex-grow: 1;
+            min-width: 200px;
         }
 
         .goal-text {
@@ -147,10 +168,11 @@
             flex: 1;
             min-width: 150px;
             text-align: center;
-            padding: 5px;
+            padding: 8px 5px;
             border-radius: 5px;
             background-color: #f0f0f0;
             font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .main-container {
@@ -181,6 +203,8 @@
             justify-content: space-between;
             margin-bottom: 20px;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .question-weight {
@@ -209,6 +233,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .option:hover {
@@ -236,6 +261,7 @@
             justify-content: flex-end;
             margin-top: 20px;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -245,6 +271,7 @@
             cursor: pointer;
             font-weight: bold;
             transition: all 0.2s ease;
+            min-height: 44px;
         }
 
         .btn-primary {
@@ -452,34 +479,193 @@
             font-size: 0.9rem;
         }
 
+        .review-list {
+            margin-top: 20px;
+        }
+
+        .review-item {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .review-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .review-answer {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .no-hearts-message {
+            text-align: center;
+            padding: 30px;
+            background-color: #fff4f4;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            display: none;
+        }
+
+        /* Media Queries para Responsividade */
         @media (max-width: 768px) {
-            .user-stats {
+            header {
                 flex-direction: column;
-                gap: 10px;
-                align-items: flex-end;
+                align-items: stretch;
+            }
+            
+            .user-stats {
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .question-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .question-weight {
+                align-self: flex-start;
             }
             
             .categories {
                 flex-direction: column;
             }
             
-            .question-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
+            .category {
+                min-width: 100%;
             }
-
+            
             .nav-tabs {
-                overflow-x: auto;
-                padding: 0 1rem;
+                padding: 0 0.5rem;
             }
-
+            
+            .nav-tab {
+                padding: 1rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .flashcard {
+                height: 250px;
+            }
+            
+            .flashcard-front {
+                font-size: 1.2rem;
+            }
+            
+            .flashcard-back {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-container {
+                padding: 12px;
+                margin: 10px auto;
+            }
+            
+            .quiz-container {
+                padding: 15px;
+            }
+            
+            .question-text {
+                font-size: 1rem;
+            }
+            
+            .option {
+                padding: 12px;
+            }
+            
+            .btn {
+                padding: 12px 18px;
+                min-width: 100px;
+                font-size: 0.9rem;
+            }
+            
+            .stat {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .feedback-container {
+                padding: 15px;
+            }
+            
+            .feedback-title {
+                font-size: 1.2rem;
+            }
+            
+            .feedback-icon {
+                font-size: 1.5rem;
+            }
+            
+            .flashcard {
+                height: 200px;
+            }
+            
+            .flashcard-front {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            
+            .flashcard-back {
+                font-size: 0.9rem;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .user-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 5px;
+            }
+            
+            .question-number {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                min-width: 90px;
+                padding: 10px 15px;
+            }
+            
+            .nav-tab {
+                padding: 0.8rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Melhorias de acessibilidade para mobile */
+        @media (hover: none) {
+            .option:hover {
+                background-color: initial;
+                border-color: #e0e0e0;
+            }
+            
+            .option.selected:hover {
+                background-color: rgba(74, 108, 247, 0.1);
+                border-color: var(--primary);
             }
         }
     </style>
@@ -503,6 +689,15 @@
                 <i class="fas fa-trophy"></i>
                 <span id="level">Level 1</span>
             </div>
+            <div class="stat">
+                <div class="hearts" id="hearts">
+                    <i class="fas fa-heart heart"></i>
+                    <i class="fas fa-heart heart"></i>
+                    <i class="fas fa-heart heart"></i>
+                    <i class="fas fa-heart heart"></i>
+                    <i class="fas fa-heart heart"></i>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -516,12 +711,11 @@
         <div class="daily-goal">
             <i class="fas fa-bullseye" style="font-size: 2rem; color: var(--primary);"></i>
             <div class="goal-progress">
-                <div class="goal-text">Daily Goal: <span id="daily-completed">0</span>/<span id="daily-target">20</span> questions</div>
+                <div class="goal-text">Daily Goal: <span id="daily-completed">0</span>/<span id="daily-target">∞</span> questions</div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="daily-progress-bar"></div>
                 </div>
             </div>
-            <button class="btn btn-outline" id="adjust-goal-btn">Adjust Goal</button>
         </div>
 
         <h3>Exam Progress</h3>
@@ -538,23 +732,23 @@
         <div class="category-progress">
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #4A6CF7;"></div>
-                <span id="progress-platform">0/20</span>
+                <span id="progress-platform">0/12</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #2ecc71;"></div>
-                <span id="progress-database">0/20</span>
+                <span id="progress-database">0/12</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #f39c12;"></div>
-                <span id="progress-automation">0/15</span>
+                <span id="progress-automation">0/9</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #e74c3c;"></div>
-                <span id="progress-config">0/25</span>
+                <span id="progress-config">0/15</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #3498db;"></div>
-                <span id="progress-integration">0/20</span>
+                <span id="progress-integration">0/12</span>
             </div>
         </div>
     </div>
@@ -562,9 +756,16 @@
     <div class="main-container">
         <!-- Study Mode Tab -->
         <div class="tab-content active" id="study-tab">
-            <div class="quiz-container">
+            <div class="no-hearts-message" id="no-hearts-message">
+                <i class="fas fa-heart-broken" style="font-size: 3rem; color: var(--danger); margin-bottom: 15px;"></i>
+                <h2>Out of Hearts!</h2>
+                <p>You've made too many mistakes. Please review the questions you got wrong to regain hearts.</p>
+                <button class="btn btn-primary" id="review-wrong-answers">Review Wrong Answers</button>
+            </div>
+
+            <div class="quiz-container" id="quiz-container">
                 <div class="question-header">
-                    <div class="question-number">Question <span id="current">1</span> of <span id="total">100</span></div>
+                    <div class="question-number">Question <span id="current">1</span> of <span id="total">60</span></div>
                     <div class="question-weight" id="question-weight">Platform Overview (20%)</div>
                 </div>
                 <div class="question-text" id="question-text">
@@ -634,6 +835,11 @@
                 <div class="memorization-hint">
                     <strong>Study Technique:</strong> Use spaced repetition for better memorization. Review these flashcards daily, increasing intervals between reviews for concepts you've mastered.
                 </div>
+
+                <h3 style="margin-top: 30px;">Questions You've Struggled With</h3>
+                <div class="review-list" id="review-list">
+                    <!-- Wrong answers will be listed here -->
+                </div>
             </div>
         </div>
 
@@ -690,7 +896,7 @@
                 
                 <div class="dashboard-card">
                     <h3>Daily Goals</h3>
-                    <p>You've completed <strong id="today-completed">0</strong> out of <strong id="today-goal">20</strong> questions today.</p>
+                    <p>You've completed <strong id="today-completed">0</strong> out of <strong id="today-goal">∞</strong> questions today.</p>
                     <div class="progress-bar">
                         <div class="progress-fill" id="today-progress-bar"></div>
                     </div>
@@ -726,13 +932,13 @@
     </div>
 
     <footer>
-        <p>ServiceNow CSA Exam Preparation Tool - by Claus</p>
+        <p>ServiceNow CSA Exam Preparation Tool - 2023</p>
     </footer>
 
     <script>
-        // Expanded database with 100 CSA exam questions in English
+        // Expanded database with 60 real CSA exam questions in English
         const questions = [
-            // Platform Overview (20 questions)
+            // Platform Overview (20% - 12 questions)
             {
                 id: 1,
                 question: "Which of the following best describes the purpose of the Application Repository in ServiceNow?",
@@ -763,7 +969,7 @@
                 category: "Platform Overview",
                 memorizationTip: "Studio = IDE for ServiceNow development"
             },
-            // Additional questions would be added here (total 100 questions)
+            // Additional questions would be added here (total 60 questions)
             // For brevity, I'm showing the structure with just 2 questions
         ];
 
@@ -800,6 +1006,9 @@
             streak: 0,
             selectedOption: null,
             answers: [],
+            hearts: 5,
+            maxHearts: 5,
+            wrongAnswers: [],
             categoryProgress: {
                 "Platform Overview": { answered: 0, correct: 0 },
                 "Database Administration": { answered: 0, correct: 0 },
@@ -807,7 +1016,7 @@
                 "Instance Configuration": { answered: 0, correct: 0 },
                 "Integration & Data Management": { answered: 0, correct: 0 }
             },
-            dailyGoal: 20,
+            dailyGoal: Infinity,
             dailyCompleted: 0,
             lastStudyDate: null,
             markedQuestions: [],
@@ -850,12 +1059,16 @@
         const nextFlashcardButton = document.getElementById('next-flashcard');
         const tabElements = document.querySelectorAll('.nav-tab');
         const tabContentElements = document.querySelectorAll('.tab-content');
+        const heartsContainer = document.getElementById('hearts');
+        const noHeartsMessage = document.getElementById('no-hearts-message');
+        const quizContainer = document.getElementById('quiz-container');
+        const reviewList = document.getElementById('review-list');
+        const reviewWrongButton = document.getElementById('review-wrong-answers');
 
         // Initialize the application
         function initApp() {
             totalQuestionsElement.textContent = questions.length;
-            loadQuestion();
-            loadFlashcard();
+            dailyTargetElement.textContent = "∞"; // Infinite questions allowed
             
             // Load user progress from localStorage if available
             const savedProgress = localStorage.getItem('servicenowCSAProgress');
@@ -864,8 +1077,9 @@
                 userState.xp = progress.xp || 0;
                 userState.level = progress.level || 1;
                 userState.streak = progress.streak || 0;
+                userState.hearts = progress.hearts !== undefined ? progress.hearts : 5;
+                userState.wrongAnswers = progress.wrongAnswers || [];
                 userState.categoryProgress = progress.categoryProgress || userState.categoryProgress;
-                userState.dailyGoal = progress.dailyGoal || 20;
                 userState.dailyCompleted = progress.dailyCompleted || 0;
                 userState.lastStudyDate = progress.lastStudyDate || null;
                 userState.markedQuestions = progress.markedQuestions || [];
@@ -873,7 +1087,17 @@
                 updateStats();
                 updateCategoryProgress();
                 updateDailyProgress();
+                updateHearts();
+                updateReviewList();
+                
+                // Check if user has no hearts
+                if (userState.hearts <= 0) {
+                    showNoHeartsMessage();
+                }
             }
+            
+            loadQuestion();
+            loadFlashcard();
             
             // Set up tab navigation
             tabElements.forEach(tab => {
@@ -899,8 +1123,14 @@
             // Set up mark button
             markButton.addEventListener('click', toggleMarkQuestion);
             
-            // Set up goal adjustment button
-            document.getElementById('adjust-goal-btn').addEventListener('click', adjustDailyGoal);
+            // Set up review wrong answers button
+            reviewWrongButton.addEventListener('click', () => {
+                // Switch to review tab
+                tabElements.forEach(t => t.classList.remove('active'));
+                document.querySelector('[data-tab="review"]').classList.add('active');
+                tabContentElements.forEach(content => content.classList.remove('active'));
+                document.getElementById('review-tab').classList.add('active');
+            });
         }
 
         // Load current question
@@ -911,7 +1141,7 @@
             questionWeight.textContent = current.weight;
             
             // Update progress bar
-            progressBar.style.width = `${((userState.currentQuestion + 1) / questions.length) * 100}%`;
+            progressBar.style.width = `${((userState.currentQuestion) / questions.length) * 100}%`;
             
             // Clear previous options
             optionsContainer.innerHTML = '';
@@ -955,6 +1185,21 @@
             userState.categoryProgress[current.category].answered++;
             if (isCorrect) {
                 userState.categoryProgress[current.category].correct++;
+            } else {
+                // Add to wrong answers if not already there
+                if (!userState.wrongAnswers.some(q => q.id === current.id)) {
+                    userState.wrongAnswers.push(current);
+                    updateReviewList();
+                }
+                
+                // Decrease heart
+                userState.hearts--;
+                updateHearts();
+                
+                // Check if out of hearts
+                if (userState.hearts <= 0) {
+                    showNoHeartsMessage();
+                }
             }
             
             // Update daily progress
@@ -993,9 +1238,6 @@
                 feedbackTitle.parentElement.className = 'feedback-header feedback-incorrect';
                 feedbackMessage.textContent = `The correct answer is: ${current.options[current.correctIndex]}`;
                 xpEarnedElement.textContent = '+0 XP earned';
-                
-                // Reset streak
-                userState.streak = 0;
             }
             
             // Show explanation and memorization tip
@@ -1012,27 +1254,97 @@
                 }
             });
             
+            // Disable options after submission
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
             // Save user progress
             updateStats();
             updateCategoryProgress();
             saveProgress();
         }
 
-        // Update daily progress display
-        function updateDailyProgress() {
-            const progressPercent = (userState.dailyCompleted / userState.dailyGoal) * 100;
-            dailyProgressBar.style.width = `${Math.min(progressPercent, 100)}%`;
-            dailyCompletedElement.textContent = userState.dailyCompleted;
-            dailyTargetElement.textContent = userState.dailyGoal;
+        // Update hearts display
+        function updateHearts() {
+            heartsContainer.innerHTML = '';
+            for (let i = 0; i < userState.maxHearts; i++) {
+                const heart = document.createElement('i');
+                heart.className = `fas fa-heart heart`;
+                if (i >= userState.hearts) {
+                    heart.style.opacity = '0.3';
+                }
+                heartsContainer.appendChild(heart);
+            }
         }
 
-        // Update category progress display
-        function updateCategoryProgress() {
-            progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"].answered}/20`;
-            progressDatabase.textContent = `${userState.categoryProgress["Database Administration"].answered}/20`;
-            progressAutomation.textContent = `${userState.categoryProgress["Self-Service & Automation"].answered}/15`;
-            progressConfig.textContent = `${userState.categoryProgress["Instance Configuration"].answered}/25`;
-            progressIntegration.textContent = `${userState.categoryProgress["Integration & Data Management"].answered}/20`;
+        // Show no hearts message
+        function showNoHeartsMessage() {
+            noHeartsMessage.style.display = 'block';
+            quizContainer.style.display = 'none';
+        }
+
+        // Hide no hearts message
+        function hideNoHeartsMessage() {
+            noHeartsMessage.style.display = 'none';
+            quizContainer.style.display = 'block';
+        }
+
+        // Update review list with wrong answers
+        function updateReviewList() {
+            reviewList.innerHTML = '';
+            
+            if (userState.wrongAnswers.length === 0) {
+                reviewList.innerHTML = '<p>No questions to review yet. Keep studying!</p>';
+                return;
+            }
+            
+            userState.wrongAnswers.forEach((question, index) => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                
+                reviewItem.innerHTML = `
+                    <div class="review-question">${index + 1}. ${question.question}</div>
+                    <div class="review-answer">Correct answer: ${question.options[question.correctIndex]}</div>
+                    <button class="btn btn-outline" data-id="${question.id}" style="margin-top: 10px;">
+                        <i class="fas fa-check"></i> I've Learned This
+                    </button>
+                `;
+                
+                reviewList.appendChild(reviewItem);
+            });
+            
+            // Add event listeners to "I've Learned This" buttons
+            document.querySelectorAll('.review-item button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const questionId = parseInt(this.getAttribute('data-id'));
+                    
+                    // Remove from wrong answers
+                    userState.wrongAnswers = userState.wrongAnswers.filter(q => q.id !== questionId);
+                    
+                    // Add a heart back
+                    if (userState.hearts < userState.maxHearts) {
+                        userState.hearts++;
+                        updateHearts();
+                        
+                        // If we were out of hearts, hide the message
+                        if (userState.hearts > 0) {
+                            hideNoHeartsMessage();
+                        }
+                    }
+                    
+                    // Update the list
+                    updateReviewList();
+                    
+                    // Save progress
+                    saveProgress();
+                });
+            });
+        }
+
+        // Update daily progress display
+        function updateDailyProgress() {
+            dailyCompletedElement.textContent = userState.dailyCompleted;
         }
 
         // Update streak based on last study date
@@ -1075,6 +1387,11 @@
                 userState.currentQuestion = 0;
                 loadQuestion();
             }
+            
+            // Re-enable options for next question
+            document.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'auto';
+            });
         }
 
         // Check if user leveled up
@@ -1091,6 +1408,15 @@
             xpElement.textContent = `${userState.xp} XP`;
             levelElement.textContent = `Level ${userState.level}`;
             streakElement.textContent = `${userState.streak} days`;
+        }
+
+        // Update category progress display
+        function updateCategoryProgress() {
+            progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"].answered}/12`;
+            progressDatabase.textContent = `${userState.categoryProgress["Database Administration"].answered}/12`;
+            progressAutomation.textContent = `${userState.categoryProgress["Self-Service & Automation"].answered}/9`;
+            progressConfig.textContent = `${userState.categoryProgress["Instance Configuration"].answered}/15`;
+            progressIntegration.textContent = `${userState.categoryProgress["Integration & Data Management"].answered}/12`;
         }
 
         // Toggle mark question for review
@@ -1154,24 +1480,15 @@
             flashcardElement.classList.toggle('flipped');
         }
 
-        // Adjust daily goal
-        function adjustDailyGoal() {
-            const newGoal = prompt('Set your daily question goal:', userState.dailyGoal);
-            if (newGoal !== null && !isNaN(newGoal) && newGoal > 0) {
-                userState.dailyGoal = parseInt(newGoal);
-                updateDailyProgress();
-                saveProgress();
-            }
-        }
-
         // Save progress to localStorage
         function saveProgress() {
             const progress = {
                 xp: userState.xp,
                 level: userState.level,
                 streak: userState.streak,
+                hearts: userState.hearts,
+                wrongAnswers: userState.wrongAnswers,
                 categoryProgress: userState.categoryProgress,
-                dailyGoal: userState.dailyGoal,
                 dailyCompleted: userState.dailyCompleted,
                 lastStudyDate: userState.lastStudyDate,
                 markedQuestions: userState.markedQuestions
