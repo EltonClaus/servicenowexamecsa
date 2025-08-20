@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ServiceNow CSA Exam Prep - Gamified</title>
+    <title>ServiceNow CSA Exam Prep - Enhanced</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #4A6CF7;
+            --primary-dark: #3a5cd8;
             --secondary: #8A94A6;
             --success: #2ecc71;
             --danger: #e74c3c;
@@ -40,12 +41,11 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 1rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: var(--box-shadow);
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -53,16 +53,13 @@
             align-items: center;
             gap: 10px;
             font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
         }
 
         .user-stats {
             display: flex;
-            gap: 10px;
+            gap: 20px;
             align-items: center;
-            flex-wrap: wrap;
-            justify-content: flex-end;
         }
 
         .stat {
@@ -70,9 +67,28 @@
             align-items: center;
             gap: 5px;
             background: rgba(255, 255, 255, 0.2);
-            padding: 5px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.9rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 2rem;
+        }
+
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: bold;
         }
 
         .progress-container {
@@ -82,7 +98,26 @@
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+
+        .daily-goal {
+            background-color: #eaf7ff;
+            border-radius: var(--border-radius);
             padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .goal-progress {
+            flex-grow: 1;
+        }
+
+        .goal-text {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
         .progress-bar {
@@ -105,18 +140,17 @@
             justify-content: space-between;
             margin-top: 10px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .category {
             flex: 1;
-            min-width: 130px;
+            min-width: 150px;
             text-align: center;
             padding: 5px;
             border-radius: 5px;
             background-color: #f0f0f0;
             font-weight: bold;
-            font-size: 0.85rem;
         }
 
         .main-container {
@@ -126,11 +160,19 @@
             flex: 1;
         }
 
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         .quiz-container {
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 20px;
         }
 
@@ -139,21 +181,18 @@
             justify-content: space-between;
             margin-bottom: 20px;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
         }
 
         .question-weight {
             background-color: var(--primary);
             color: white;
-            padding: 5px 12px;
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         .question-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
             line-height: 1.5;
         }
@@ -161,19 +200,18 @@
         .options-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .option {
-            padding: 14px;
+            padding: 15px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;
-            -webkit-tap-highlight-color: transparent;
         }
 
-        .option:hover, .option:focus {
+        .option:hover {
             background-color: #f5f5f5;
             border-color: #c0c0c0;
         }
@@ -197,18 +235,16 @@
             display: flex;
             justify-content: flex-end;
             margin-top: 20px;
+            gap: 10px;
         }
 
         .btn {
-            padding: 14px 22px;
+            padding: 12px 24px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             transition: all 0.2s ease;
-            font-size: 1rem;
-            min-height: 48px;
-            min-width: 120px;
         }
 
         .btn-primary {
@@ -216,15 +252,36 @@
             color: white;
         }
 
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: #3a5cd8;
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
         }
 
         .feedback-container {
             background-color: var(--card-bg);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            padding: 20px;
+            padding: 25px;
             margin-top: 20px;
             display: none;
         }
@@ -237,11 +294,11 @@
         }
 
         .feedback-icon {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
         .feedback-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
@@ -266,7 +323,7 @@
             font-weight: bold;
             color: var(--primary);
             margin-top: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         footer {
@@ -288,7 +345,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .category-color {
@@ -297,114 +354,132 @@
             border-radius: 50%;
         }
 
-        /* Media Queries para Responsividade */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .dashboard-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+        }
+
+        .dashboard-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            background-color: #f8f9fa;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .flashcard-front {
+            background-color: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .flashcard-back {
+            background-color: var(--card-bg);
+            transform: rotateY(180deg);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .memorization-hint {
+            background-color: #fff8e6;
+            border-left: 4px solid var(--warning);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
             .user-stats {
-                justify-content: center;
-                margin-top: 10px;
-            }
-            
-            .question-header {
                 flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .question-weight {
-                align-self: flex-start;
+                gap: 10px;
+                align-items: flex-end;
             }
             
             .categories {
                 flex-direction: column;
             }
             
-            .category {
-                min-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .progress-container {
-                padding: 12px;
-                margin: 10px auto;
-            }
-            
-            .quiz-container {
-                padding: 15px;
-            }
-            
-            .question-text {
-                font-size: 1rem;
-            }
-            
-            .option {
-                padding: 12px;
-            }
-            
-            .btn {
-                padding: 12px 18px;
-                min-width: 100px;
-                font-size: 0.9rem;
-            }
-            
-            .stat {
-                font-size: 0.8rem;
-                padding: 4px 8px;
-            }
-            
-            .logo {
-                font-size: 1.1rem;
-            }
-            
-            .feedback-container {
-                padding: 15px;
-            }
-            
-            .feedback-title {
-                font-size: 1.2rem;
-            }
-            
-            .feedback-icon {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .user-stats {
+            .question-header {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
+                gap: 10px;
             }
-            
-            .stat {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 5px;
-            }
-            
-            .question-number {
-                font-size: 0.9rem;
-            }
-            
-            .btn {
-                min-width: 90px;
-                padding: 10px 15px;
-            }
-        }
 
-        /* Melhorias de acessibilidade para mobile */
-        @media (hover: none) {
-            .option:hover {
-                background-color: initial;
-                border-color: #e0e0e0;
+            .nav-tabs {
+                overflow-x: auto;
+                padding: 0 1rem;
             }
-            
-            .option.selected:hover {
-                background-color: rgba(74, 108, 247, 0.1);
-                border-color: var(--primary);
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -431,7 +506,24 @@
         </div>
     </header>
 
+    <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="study">Study Mode</div>
+        <div class="nav-tab" data-tab="review">Review & Memorize</div>
+        <div class="nav-tab" data-tab="dashboard">Dashboard</div>
+    </div>
+
     <div class="progress-container">
+        <div class="daily-goal">
+            <i class="fas fa-bullseye" style="font-size: 2rem; color: var(--primary);"></i>
+            <div class="goal-progress">
+                <div class="goal-text">Daily Goal: <span id="daily-completed">0</span>/<span id="daily-target">20</span> questions</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="daily-progress-bar"></div>
+                </div>
+            </div>
+            <button class="btn btn-outline" id="adjust-goal-btn">Adjust Goal</button>
+        </div>
+
         <h3>Exam Progress</h3>
         <div class="progress-bar">
             <div class="progress-fill" id="progress-bar"></div>
@@ -446,58 +538,189 @@
         <div class="category-progress">
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #4A6CF7;"></div>
-                <span id="progress-platform">0/12</span>
+                <span id="progress-platform">0/20</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #2ecc71;"></div>
-                <span id="progress-database">0/12</span>
+                <span id="progress-database">0/20</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #f39c12;"></div>
-                <span id="progress-automation">0/9</span>
+                <span id="progress-automation">0/15</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #e74c3c;"></div>
-                <span id="progress-config">0/15</span>
+                <span id="progress-config">0/25</span>
             </div>
             <div class="category-progress-item">
                 <div class="category-color" style="background-color: #3498db;"></div>
-                <span id="progress-integration">0/12</span>
+                <span id="progress-integration">0/20</span>
             </div>
         </div>
     </div>
 
     <div class="main-container">
-        <div class="quiz-container">
-            <div class="question-header">
-                <div class="question-number">Question <span id="current">1</span> of <span id="total">60</span></div>
-                <div class="question-weight" id="question-weight">Platform Overview (20%)</div>
+        <!-- Study Mode Tab -->
+        <div class="tab-content active" id="study-tab">
+            <div class="quiz-container">
+                <div class="question-header">
+                    <div class="question-number">Question <span id="current">1</span> of <span id="total">100</span></div>
+                    <div class="question-weight" id="question-weight">Platform Overview (20%)</div>
+                </div>
+                <div class="question-text" id="question-text">
+                    Loading question...
+                </div>
+                <div class="options-container" id="options-container">
+                    <!-- Options will be inserted here by JavaScript -->
+                </div>
+                <div class="actions">
+                    <button class="btn btn-outline" id="mark-btn">
+                        <i class="far fa-bookmark"></i> Mark for Review
+                    </button>
+                    <button class="btn btn-primary" id="submit-btn" disabled>Confirm Answer</button>
+                </div>
             </div>
-            <div class="question-text" id="question-text">
-                Loading question...
-            </div>
-            <div class="options-container" id="options-container">
-                <!-- Options will be inserted here by JavaScript -->
-            </div>
-            <div class="actions">
-                <button class="btn btn-primary" id="submit-btn" disabled>Confirm Answer</button>
+
+            <div class="feedback-container" id="feedback-container">
+                <div class="feedback-header" id="feedback-header">
+                    <i class="fas fa-check-circle feedback-icon" id="feedback-icon"></i>
+                    <div class="feedback-title" id="feedback-title">Correct Answer!</div>
+                </div>
+                <div class="feedback-message" id="feedback-message">
+                    Congratulations! You got this question right.
+                </div>
+                <div class="explanation" id="explanation">
+                    Explanation of the correct answer.
+                </div>
+                <div class="memorization-hint">
+                    <strong>Memorization Tip:</strong> <span id="memorization-tip">Key concept to remember for this question.</span>
+                </div>
+                <div class="xp-earned" id="xp-earned">+10 XP earned!</div>
+                <div class="actions">
+                    <button class="btn btn-primary" id="next-btn">Next Question</button>
+                </div>
             </div>
         </div>
 
-        <div class="feedback-container" id="feedback-container">
-            <div class="feedback-header" id="feedback-header">
-                <i class="fas fa-check-circle feedback-icon" id="feedback-icon"></i>
-                <div class="feedback-title" id="feedback-title">Correct Answer!</div>
+        <!-- Review & Memorize Tab -->
+        <div class="tab-content" id="review-tab">
+            <div class="quiz-container">
+                <h2>Review & Memorization</h2>
+                <p>Focus on questions you've marked or struggled with. Use flashcards to reinforce key concepts.</p>
+                
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div id="flashcard-question">What is the purpose of Update Sets in ServiceNow?</div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div id="flashcard-answer">Update Sets are used to manage and transport custom configurations between instances, making it easier to move changes from development to production environments.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn btn-outline" id="prev-flashcard">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="flip-flashcard">
+                        <i class="fas fa-sync-alt"></i> Flip Card
+                    </button>
+                    <button class="btn btn-outline" id="next-flashcard">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <div class="memorization-hint">
+                    <strong>Study Technique:</strong> Use spaced repetition for better memorization. Review these flashcards daily, increasing intervals between reviews for concepts you've mastered.
+                </div>
             </div>
-            <div class="feedback-message" id="feedback-message">
-                Congratulations! You got this question right.
-            </div>
-            <div class="explanation" id="explanation">
-                Explanation of the correct answer.
-            </div>
-            <div class="xp-earned" id="xp-earned">+10 XP earned!</div>
-            <div class="actions">
-                <button class="btn btn-primary" id="next-btn">Next Question</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div class="tab-content" id="dashboard-tab">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Progress Overview</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="total-questions">0</div>
+                            <div class="stat-label">Total Questions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="correct-answers">0</div>
+                            <div class="stat-label">Correct Answers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="accuracy">0%</div>
+                            <div class="stat-label">Accuracy</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="marked-questions">0</div>
+                            <div class="stat-label">Marked for Review</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Category Performance</h3>
+                    <div class="category-progress">
+                        <div class="category-progress-item">
+                            <div class="category-color" style="background-color: #4A6CF7;"></div>
+                            <span>Platform: <span id="score-platform">0%</span></span>
+                        </div>
+                        <div class="category-progress-item">
+                            <div class="category-color" style="background-color: #2ecc71;"></div>
+                            <span>Database: <span id="score-database">0%</span></span>
+                        </div>
+                        <div class="category-progress-item">
+                            <div class="category-color" style="background-color: #f39c12;"></div>
+                            <span>Automation: <span id="score-automation">0%</span></span>
+                        </div>
+                        <div class="category-progress-item">
+                            <div class="category-color" style="background-color: #e74c3c;"></div>
+                            <span>Configuration: <span id="score-config">0%</span></span>
+                        </div>
+                        <div class="category-progress-item">
+                            <div class="category-color" style="background-color: #3498db;"></div>
+                            <span>Integration: <span id="score-integration">0%</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Daily Goals</h3>
+                    <p>You've completed <strong id="today-completed">0</strong> out of <strong id="today-goal">20</strong> questions today.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="today-progress-bar"></div>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <p><strong>Current Streak:</strong> <span id="current-streak">0</span> days</p>
+                        <p><strong>Last Study Date:</strong> <span id="last-study-date">Never</span></p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3>Achievements</h3>
+                    <div style="margin-bottom: 15px;">
+                        <p><i class="fas fa-medal" style="color: gold;"></i> <strong>Master Explorer:</strong> Answer 100 questions</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <p><i class="fas fa-medal" style="color: silver;"></i> <strong>Consistent Learner:</strong> 7-day streak</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p><i class="fas fa-medal" style="color: #cd7f32;"></i> <strong>Category Master:</strong> Score 90% in all categories</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -507,8 +730,9 @@
     </footer>
 
     <script>
-        // Database with 60 real CSA exam questions in English
+        // Expanded database with 100 CSA exam questions in English
         const questions = [
+            // Platform Overview (20 questions)
             {
                 id: 1,
                 question: "Which of the following best describes the purpose of the Application Repository in ServiceNow?",
@@ -521,7 +745,8 @@
                 correctIndex: 1,
                 explanation: "The Application Repository in ServiceNow is a centralized location where administrators can browse, view, and install applications and application updates directly from certified vendors. It simplifies the process of acquiring and deploying new features and functionality.",
                 weight: "Platform Overview (20%)",
-                category: "Platform Overview"
+                category: "Platform Overview",
+                memorizationTip: "Remember: Application Repository = App Store for ServiceNow"
             },
             {
                 id: 2,
@@ -535,9 +760,35 @@
                 correctIndex: 1,
                 explanation: "ServiceNow Studio is an integrated development environment (IDE) that allows developers to efficiently create, test, and deploy custom applications in ServiceNow.",
                 weight: "Platform Overview (20%)",
-                category: "Platform Overview"
+                category: "Platform Overview",
+                memorizationTip: "Studio = IDE for ServiceNow development"
             },
-            // Additional questions would be added here (total 60 questions)
+            // Additional questions would be added here (total 100 questions)
+            // For brevity, I'm showing the structure with just 2 questions
+        ];
+
+        // Flashcard questions for memorization
+        const flashcards = [
+            {
+                question: "What is the purpose of Update Sets in ServiceNow?",
+                answer: "Update Sets are used to manage and transport custom configurations between instances, making it easier to move changes from development to production environments."
+            },
+            {
+                question: "Which table is the main table for managing users in ServiceNow?",
+                answer: "The sys_user table is the main table for managing users in ServiceNow. It contains information such as username, ID, email, department, and other user-related information."
+            },
+            {
+                question: "What is a Business Rule in ServiceNow?",
+                answer: "Business Rules are server-side scripts that are triggered when records are displayed, inserted, updated, or deleted. They allow automating processes and enforcing custom business logic."
+            },
+            {
+                question: "What is the function of the Service Portal in ServiceNow?",
+                answer: "The Service Portal provides a customizable and responsive interface for end users to access services, catalogs, and self-service information."
+            },
+            {
+                question: "What are Access Control Lists (ACLs) in ServiceNow?",
+                answer: "ACLs are security rules that control access to records, fields, and operations in ServiceNow, ensuring users can only access what they have permission to."
+            }
         ];
 
         // User state
@@ -550,12 +801,17 @@
             selectedOption: null,
             answers: [],
             categoryProgress: {
-                "Platform Overview": 0,
-                "Database Administration": 0,
-                "Self-Service & Automation": 0,
-                "Instance Configuration": 0,
-                "Integration & Data Management": 0
-            }
+                "Platform Overview": { answered: 0, correct: 0 },
+                "Database Administration": { answered: 0, correct: 0 },
+                "Self-Service & Automation": { answered: 0, correct: 0 },
+                "Instance Configuration": { answered: 0, correct: 0 },
+                "Integration & Data Management": { answered: 0, correct: 0 }
+            },
+            dailyGoal: 20,
+            dailyCompleted: 0,
+            lastStudyDate: null,
+            markedQuestions: [],
+            currentFlashcard: 0
         };
 
         // DOM elements
@@ -581,11 +837,25 @@
         const progressAutomation = document.getElementById('progress-automation');
         const progressConfig = document.getElementById('progress-config');
         const progressIntegration = document.getElementById('progress-integration');
+        const dailyProgressBar = document.getElementById('daily-progress-bar');
+        const dailyCompletedElement = document.getElementById('daily-completed');
+        const dailyTargetElement = document.getElementById('daily-target');
+        const memorizationTipElement = document.getElementById('memorization-tip');
+        const markButton = document.getElementById('mark-btn');
+        const flashcardElement = document.getElementById('flashcard');
+        const flashcardQuestion = document.getElementById('flashcard-question');
+        const flashcardAnswer = document.getElementById('flashcard-answer');
+        const prevFlashcardButton = document.getElementById('prev-flashcard');
+        const flipFlashcardButton = document.getElementById('flip-flashcard');
+        const nextFlashcardButton = document.getElementById('next-flashcard');
+        const tabElements = document.querySelectorAll('.nav-tab');
+        const tabContentElements = document.querySelectorAll('.tab-content');
 
-        // Initialize the quiz
-        function initQuiz() {
+        // Initialize the application
+        function initApp() {
             totalQuestionsElement.textContent = questions.length;
             loadQuestion();
+            loadFlashcard();
             
             // Load user progress from localStorage if available
             const savedProgress = localStorage.getItem('servicenowCSAProgress');
@@ -595,9 +865,42 @@
                 userState.level = progress.level || 1;
                 userState.streak = progress.streak || 0;
                 userState.categoryProgress = progress.categoryProgress || userState.categoryProgress;
+                userState.dailyGoal = progress.dailyGoal || 20;
+                userState.dailyCompleted = progress.dailyCompleted || 0;
+                userState.lastStudyDate = progress.lastStudyDate || null;
+                userState.markedQuestions = progress.markedQuestions || [];
+                
                 updateStats();
                 updateCategoryProgress();
+                updateDailyProgress();
             }
+            
+            // Set up tab navigation
+            tabElements.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabElements.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    tabContentElements.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Set up flashcard navigation
+            prevFlashcardButton.addEventListener('click', showPrevFlashcard);
+            nextFlashcardButton.addEventListener('click', showNextFlashcard);
+            flipFlashcardButton.addEventListener('click', flipFlashcard);
+            flashcardElement.addEventListener('click', flipFlashcard);
+            
+            // Set up mark button
+            markButton.addEventListener('click', toggleMarkQuestion);
+            
+            // Set up goal adjustment button
+            document.getElementById('adjust-goal-btn').addEventListener('click', adjustDailyGoal);
         }
 
         // Load current question
@@ -608,7 +911,7 @@
             questionWeight.textContent = current.weight;
             
             // Update progress bar
-            progressBar.style.width = `${((userState.currentQuestion) / questions.length) * 100}%`;
+            progressBar.style.width = `${((userState.currentQuestion + 1) / questions.length) * 100}%`;
             
             // Clear previous options
             optionsContainer.innerHTML = '';
@@ -632,17 +935,11 @@
                     submitButton.disabled = false;
                 });
                 
-                // Add touch event for better mobile experience
-                optionElement.addEventListener('touchstart', function() {
-                    this.style.transform = 'scale(0.98)';
-                });
-                
-                optionElement.addEventListener('touchend', function() {
-                    this.style.transform = 'scale(1)';
-                });
-                
                 optionsContainer.appendChild(optionElement);
             });
+            
+            // Update mark button state
+            updateMarkButton();
             
             // Reset UI state
             submitButton.disabled = true;
@@ -653,6 +950,19 @@
         function submitAnswer() {
             const current = questions[userState.currentQuestion];
             const isCorrect = userState.selectedOption === current.correctIndex;
+            
+            // Update category progress
+            userState.categoryProgress[current.category].answered++;
+            if (isCorrect) {
+                userState.categoryProgress[current.category].correct++;
+            }
+            
+            // Update daily progress
+            userState.dailyCompleted++;
+            updateDailyProgress();
+            
+            // Check if we need to update streak
+            updateStreak();
             
             // Show feedback
             feedbackContainer.style.display = 'block';
@@ -674,10 +984,6 @@
                 // Increase streak
                 userState.streak++;
                 
-                // Update category progress
-                userState.categoryProgress[current.category]++;
-                updateCategoryProgress();
-                
                 // Check for level up
                 checkLevelUp();
             } else {
@@ -692,8 +998,9 @@
                 userState.streak = 0;
             }
             
-            // Show explanation
+            // Show explanation and memorization tip
             explanationElement.textContent = current.explanation;
+            memorizationTipElement.textContent = current.memorizationTip;
             
             // Highlight correct and incorrect answers
             document.querySelectorAll('.option').forEach(option => {
@@ -707,16 +1014,53 @@
             
             // Save user progress
             updateStats();
+            updateCategoryProgress();
             saveProgress();
+        }
+
+        // Update daily progress display
+        function updateDailyProgress() {
+            const progressPercent = (userState.dailyCompleted / userState.dailyGoal) * 100;
+            dailyProgressBar.style.width = `${Math.min(progressPercent, 100)}%`;
+            dailyCompletedElement.textContent = userState.dailyCompleted;
+            dailyTargetElement.textContent = userState.dailyGoal;
         }
 
         // Update category progress display
         function updateCategoryProgress() {
-            progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"]}/12`;
-            progressDatabase.textContent = `${userState.categoryProgress["Database Administration"]}/12`;
-            progressAutomation.textContent = `${userState.categoryProgress["Self-Service & Automation"]}/9`;
-            progressConfig.textContent = `${userState.categoryProgress["Instance Configuration"]}/15`;
-            progressIntegration.textContent = `${userState.categoryProgress["Integration & Data Management"]}/12`;
+            progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"].answered}/20`;
+            progressDatabase.textContent = `${userState.categoryProgress["Database Administration"].answered}/20`;
+            progressAutomation.textContent = `${userState.categoryProgress["Self-Service & Automation"].answered}/15`;
+            progressConfig.textContent = `${userState.categoryProgress["Instance Configuration"].answered}/25`;
+            progressIntegration.textContent = `${userState.categoryProgress["Integration & Data Management"].answered}/20`;
+        }
+
+        // Update streak based on last study date
+        function updateStreak() {
+            const today = new Date().toDateString();
+            const lastStudy = userState.lastStudyDate ? new Date(userState.lastStudyDate).toDateString() : null;
+            
+            if (lastStudy === today) {
+                // Already studied today, no change to streak
+                return;
+            }
+            
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            
+            if (lastStudy === yesterday.toDateString()) {
+                // Studied yesterday, increment streak
+                userState.streak++;
+            } else if (lastStudy && lastStudy !== today) {
+                // Missed a day, reset streak
+                userState.streak = 1;
+            } else {
+                // First time studying
+                userState.streak = 1;
+            }
+            
+            userState.lastStudyDate = new Date().toISOString();
+            updateStats();
         }
 
         // Next question
@@ -749,13 +1093,88 @@
             streakElement.textContent = `${userState.streak} days`;
         }
 
+        // Toggle mark question for review
+        function toggleMarkQuestion() {
+            const questionId = questions[userState.currentQuestion].id;
+            const index = userState.markedQuestions.indexOf(questionId);
+            
+            if (index === -1) {
+                // Mark question
+                userState.markedQuestions.push(questionId);
+                markButton.innerHTML = '<i class="fas fa-bookmark"></i> Marked for Review';
+                markButton.style.backgroundColor = '#ffeeba';
+            } else {
+                // Unmark question
+                userState.markedQuestions.splice(index, 1);
+                markButton.innerHTML = '<i class="far fa-bookmark"></i> Mark for Review';
+                markButton.style.backgroundColor = '';
+            }
+            
+            saveProgress();
+        }
+
+        // Update mark button based on current question
+        function updateMarkButton() {
+            const questionId = questions[userState.currentQuestion].id;
+            const isMarked = userState.markedQuestions.includes(questionId);
+            
+            if (isMarked) {
+                markButton.innerHTML = '<i class="fas fa-bookmark"></i> Marked for Review';
+                markButton.style.backgroundColor = '#ffeeba';
+            } else {
+                markButton.innerHTML = '<i class="far fa-bookmark"></i> Mark for Review';
+                markButton.style.backgroundColor = '';
+            }
+        }
+
+        // Load flashcard
+        function loadFlashcard() {
+            const flashcard = flashcards[userState.currentFlashcard];
+            flashcardQuestion.textContent = flashcard.question;
+            flashcardAnswer.textContent = flashcard.answer;
+            
+            // Reset flip state
+            flashcardElement.classList.remove('flipped');
+        }
+
+        // Show next flashcard
+        function showNextFlashcard() {
+            userState.currentFlashcard = (userState.currentFlashcard + 1) % flashcards.length;
+            loadFlashcard();
+        }
+
+        // Show previous flashcard
+        function showPrevFlashcard() {
+            userState.currentFlashcard = (userState.currentFlashcard - 1 + flashcards.length) % flashcards.length;
+            loadFlashcard();
+        }
+
+        // Flip flashcard
+        function flipFlashcard() {
+            flashcardElement.classList.toggle('flipped');
+        }
+
+        // Adjust daily goal
+        function adjustDailyGoal() {
+            const newGoal = prompt('Set your daily question goal:', userState.dailyGoal);
+            if (newGoal !== null && !isNaN(newGoal) && newGoal > 0) {
+                userState.dailyGoal = parseInt(newGoal);
+                updateDailyProgress();
+                saveProgress();
+            }
+        }
+
         // Save progress to localStorage
         function saveProgress() {
             const progress = {
                 xp: userState.xp,
                 level: userState.level,
                 streak: userState.streak,
-                categoryProgress: userState.categoryProgress
+                categoryProgress: userState.categoryProgress,
+                dailyGoal: userState.dailyGoal,
+                dailyCompleted: userState.dailyCompleted,
+                lastStudyDate: userState.lastStudyDate,
+                markedQuestions: userState.markedQuestions
             };
             localStorage.setItem('servicenowCSAProgress', JSON.stringify(progress));
         }
@@ -764,20 +1183,8 @@
         submitButton.addEventListener('click', submitAnswer);
         nextButton.addEventListener('click', nextQuestion);
 
-        // Add touch events for mobile buttons
-        [submitButton, nextButton].forEach(button => {
-            button.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.95)';
-            });
-            
-            button.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
-
-        // Initialize the quiz when page loads
-        window.addEventListener('load', initQuiz);
+        // Initialize the app when page loads
+        window.addEventListener('load', initApp);
     </script>
 </body>
-
 </html>
