@@ -909,6 +909,238 @@ const questions = [
         weight: "Other Topics (42%)",
         category: "Other Topics",
         memorizationTip: "Upgrade: Family, Update: Patch"
+    },
+    {
+        id: 61,
+        question: "A Service Catalog may include which of the following components?",
+        options: [
+            "Order Guides, Exchange Rates, Calendars",
+            "Order Guides, Catalog Items, and Interceptors",
+            "Catalog Items, Asset Contracts, Task Surveys",
+            "Record Producers, Order Guides, and Catalog Items"
+        ],
+        correctIndex: 3,
+        explanation: "A Service Catalog includes Record Producers, Order Guides, and Catalog Items.",
+        weight: "Self-Service & Process Automation",
+        category: "Self-Service & Process Automation",
+        memorizationTip: "Catalog: Record Producers, Order Guides, Items"
+    },
+    {
+        id: 62,
+        question: "Which one of the following statements applies to a set of fields when they are coalesced during an import?",
+        options: [
+            "If a match is found using the coalesce fields, the existing record is updated with the information being imported",
+            "If a match is not found using the coalesce fields, the system does not create a Transform Map",
+            "If a match is found using the coalesce fields, the system creates a new record",
+            "If a match is not found using the coalesce fields, the existing record is updated with the information being imported"
+        ],
+        correctIndex: 0,
+        explanation: "Coalesce updates existing if match found.",
+        weight: "Database Administration",
+        category: "Database Administration",
+        memorizationTip: "Coalesce: Match update existing"
+    },
+    {
+        id: 63,
+        question: "As it relates to ServiceNow reporting, which of the following statements describes what a metric can do?",
+        options: [
+            "A metric is a report gauge used on homepages to display real-time data",
+            "A metric is a time measurement used to report the effectiveness of workflows and SLAs",
+            "A metric is used to measure and evaluate the effectiveness of IT service management processes",
+            "A metric is a comparative measurement used to report the effectiveness of flows and SLAs"
+        ],
+        correctIndex: 2,
+        explanation: "Metric: Evaluate IT processes effectiveness.",
+        weight: "Collaboration",
+        category: "Collaboration",
+        memorizationTip: "Metric: Evaluate IT processes"
+    },
+    {
+        id: 64,
+        question: "The display sequence is controlled in a Service Catalog Item using which of the following?",
+        options: [
+            "The Default Value field in the Catalog Item form",
+            "The Sequence field in the Catalog Item form",
+            "The Order field in the Variable form",
+            "The Choice field in the Variable form"
+        ],
+        correctIndex: 2,
+        explanation: "Display sequence: Order field in Variable.",
+        weight: "Self-Service & Process Automation",
+        category: "Self-Service & Process Automation",
+        memorizationTip: "Sequence: Order in Variable"
+    },
+    {
+        id: 65,
+        question: "Reports can be created from which different places in the platform? (Choose two.)",
+        options: [
+            "List column heading",
+            "Metrics module",
+            "Statistics module",
+            "View / Run module"
+        ],
+        correctIndex: [0, 3],
+        explanation: "Reports from List heading and View/Run.",
+        weight: "Collaboration",
+        category: "Collaboration",
+        memorizationTip: "Reports: List heading, View/Run"
+    },
+    {
+        id: 66,
+        question: "Knowledge Base Search results can be sorted by which of the following? (Choose three.)",
+        options: [
+            "Most recent update",
+            "Popularity",
+            "Relevancy",
+            "Manager assignment",
+            "Number of views"
+        ],
+        correctIndex: [0, 2, 4],
+        explanation: "KB Sort: Update, Relevancy, Views.",
+        weight: "Collaboration",
+        category: "Collaboration",
+        memorizationTip: "KB Sort: Update Relevancy Views"
+    },
+    {
+        id: 67,
+        question: "What is the path an Administrator could take to view the fulfillment stage task list for an order placed by a user?",
+        options: [
+            "RITM (Number)>REQ (Number)>PROCUREMENT (Number)",
+            "REQ (Number)>RITM (Number)>PROCUREMENT (Number)",
+            "REQ (Number)>RITM (Number)>TASK (Number)",
+            "FULFILLMENT (Number)>RITM (Number)>TASK (Number)"
+        ],
+        correctIndex: 2,
+        explanation: "Path: REQ > RITM > TASK.",
+        weight: "Self-Service & Process Automation",
+        category: "Self-Service & Process Automation",
+        memorizationTip: "Fulfillment: REQ RITM TASK"
+    },
+    {
+        id: 68,
+        question: "Which term refers to application menus and modules which you may want to access quickly and often?",
+        options: [
+            "Breadcrumb",
+            "Favorite",
+            "Tag",
+            "Bookmark"
+        ],
+        correctIndex: 1,
+        explanation: "Favorites for quick access.",
+        weight: "User Interface & Navigation",
+        category: "User Interface & Navigation",
+        memorizationTip: "Quick access: Favorite"
+    },
+    {
+        id: 69,
+        question: "What is generated from the Service Catalog once a user places an order for an item or service?",
+        options: [
+            "A change request",
+            "An Order Guide",
+            "A request",
+            "An SLA"
+        ],
+        correctIndex: 2,
+        explanation: "Order generates request.",
+        weight: "Self-Service & Process Automation",
+        category: "Self-Service & Process Automation",
+        memorizationTip: "Order: Generates request"
+    },
+    {
+        id: 70,
+        question: "From the User menu, which actions can a user select? (Choose three.)",
+        options: [
+            "Send Notifications",
+            "Log Out ServiceNow",
+            "Elevate Roles",
+            "Impersonate Users",
+            "Order from Service Catalog",
+            "Approve Records"
+        ],
+        correctIndex: [1, 2, 3],
+        explanation: "User menu: Log Out, Elevate, Impersonate.",
+        weight: "User Interface & Navigation",
+        category: "User Interface & Navigation",
+        memorizationTip: "User Menu: Log Out Elevate Impersonate"
+    },
+    {
+        id: 71,
+        question: "When adding a related list to a form, you choose the related list from the list collector. What is an example of a related list you might see on the list collector? Choose 3 answers",
+        options: [
+            "Release Phase == Parent",
+            "Catalog Task Parent",
+            "HR Case Parent",
+            "Problem Parent",
+            "Outage Task Number"
+        ],
+        correctIndex: [1, 2, 3],
+        explanation: "Related lists: Catalog Task, HR Case, Problem Parent.",
+        weight: "User Interface & Navigation",
+        category: "User Interface & Navigation",
+        memorizationTip: "Related: Catalog HR Problem Parent"
+    },
+    {
+        id: 72,
+        question: "A colleague wants to rearrange the columns on their My Work list. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
+        options: [
+            "Click Personalize List",
+            "Right-click on any column header. Context Menu > Configure > List Layout",
+            "Click List Context Menu > Personalize List",
+            "Click List Content Menu > Configure > List Layout"
+        ],
+        correctIndex: 1,
+        explanation: "Rearrange: Right-click header > Configure > List Layout.",
+        weight: "User Interface & Navigation",
+        category: "User Interface & Navigation",
+        memorizationTip: "Rearrange: Right-click Configure Layout"
+    },
+    {
+        id: 73,
+        question: "Which roles grant access to source control repository operations such as importing applications from source control, or linking an application to source control? Choose 2 answers",
+        options: [
+            "source_control",
+            "git_admin",
+            "admin",
+            "source_control_admin"
+        ],
+        correctIndex: [2, 3],
+        explanation: "Source control: admin, source_control_admin.",
+        weight: "Introduction to Development",
+        category: "Introduction to Development",
+        memorizationTip: "Source Control: admin source_control_admin"
+    },
+    {
+        id: 74,
+        question: "What ServiceNow feature can be triggered by events, and is used to inform users about activities or updates in ServiceNow?",
+        options: [
+            "Notifications",
+            "Alerts",
+            "Texts",
+            "Events",
+            "Emails"
+        ],
+        correctIndex: 0,
+        explanation: "Feature: Notifications triggered by events.",
+        weight: "Collaboration",
+        category: "Collaboration",
+        memorizationTip: "Inform users: Notifications"
+    },
+    // Continue adding the remaining questions to reach 71, using the extracted from ValidExamDumps, Quizlet, and common CSA questions from knowledge.
+    // For example:
+    {
+        id: 75,
+        question: "What are the different interfaces for accessing a ServiceNow Instance?",
+        options: [
+            "Now Platform User Interface, Service Portal, ServiceNow Mobile Classic, ServiceNow Agent",
+            "Classic UI, Workspace, Portal, Mobile",
+            "Admin, User, Developer, Executive",
+            "Flow, VA, Hub, PI"
+        ],
+        correctIndex: 0,
+        explanation: "Interfaces: Platform UI, Portal, Mobile Classic, Agent.",
+        weight: "User Interface & Navigation",
+        category: "User Interface & Navigation",
+        memorizationTip: "Interfaces: Platform Portal Mobile Agent"
     }
 ];
 
@@ -1133,6 +1365,66 @@ const flashcards = [
     {
         question: "What is Automation Center?",
         answer: "Benefits like RPA integration."
+    },
+    {
+        question: "What are the different interfaces for accessing a ServiceNow Instance?",
+        answer: "Now Platform User Interface, Service Portal, ServiceNow Mobile Classic, ServiceNow Agent."
+    },
+    {
+        question: "What are the three components of the Now Platform User Interface?",
+        answer: "Banner Frame, Application Navigator, Content Frame."
+    },
+    {
+        question: "What is a collection of users who share a common purpose?",
+        answer: "Group."
+    },
+    {
+        question: "Where can you locate product documentation?",
+        answer: "docs.servicenow.com."
+    },
+    {
+        question: "What is a collection of permissions used to grant access to different parts of the platform?",
+        answer: "Role."
+    },
+    {
+        question: "What is a common way of testing functionality for different roles?",
+        answer: "Impersonate User."
+    },
+    {
+        question: "A row represents what in the ServiceNow database?",
+        answer: "Record."
+    },
+    {
+        question: "What are the three different types of context menus in a list view?",
+        answer: "List, Column, Record."
+    },
+    {
+        question: "What are the three components of a filter condition?",
+        answer: "Field, Operator, Value."
+    },
+    {
+        question: "What defines which fields appear in a list and the order of said fields?",
+        answer: "View."
+    },
+    {
+        question: "Which field type displays as a check box on the form?",
+        answer: "True/False."
+    },
+    {
+        question: "Which field type displays information from another table?",
+        answer: "Reference."
+    },
+    {
+        question: "Which tool can be used to change the layout of the form view for all users?",
+        answer: "Form Designer."
+    },
+    {
+        question: "What are the three main components of the Form Designer?",
+        answer: "Page Header, Field Navigator, Form Layout."
+    },
+    {
+        question: "What allows fields to be populated automatically when applied?",
+        answer: "Template."
     }
 ];
 
