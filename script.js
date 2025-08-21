@@ -14,7 +14,7 @@ const questions = [
         correctIndex: 0,
         explanation: "ServiceNow was founded by Fred Luddy and is currently led by CEO Bill McDermott.",
         weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Founder: Fred Luddy, CEO: Bill McDermott"
     },
     {
@@ -29,7 +29,7 @@ const questions = [
         correctIndex: 0,
         explanation: "The four workflows are IT, Customer, Creator, and Employee Workflows.",
         weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Workflows: IT, Customer, Creator, Employee"
     },
     {
@@ -44,7 +44,7 @@ const questions = [
         correctIndex: 0,
         explanation: "Interfaces: Next Experience, Now Mobile, Service Portal, Employee Center.",
         weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Interfaces: Next Experience, Mobile, Portal, Employee Center"
     },
     {
@@ -59,7 +59,7 @@ const questions = [
         correctIndex: 0,
         explanation: "Incident states: New, In Progress, On Hold, Resolved, Closed, Canceled.",
         weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Incident States: New > Progress > Hold > Resolved > Closed > Canceled"
     },
 
@@ -672,7 +672,7 @@ const questions = [
     },
     {
         id: 45,
-        question: "How do you manage Task-based records?",
+        question: "What is the best practice for managing Task-based records?",
         options: [
             "Assign to Groups, then to Individuals",
             "Direct to Users",
@@ -922,7 +922,7 @@ const questions = [
         correctIndex: 3,
         explanation: "A Service Catalog includes Record Producers, Order Guides, and Catalog Items.",
         weight: "Self-Service & Process Automation",
-        category: "Self-Service & Process Automation",
+        category: "Self Service and Automation",
         memorizationTip: "Catalog: Record Producers, Order Guides, Items"
     },
     {
@@ -937,7 +937,7 @@ const questions = [
         correctIndex: 0,
         explanation: "Coalesce updates existing if match found.",
         weight: "Database Administration",
-        category: "Database Administration",
+        category: "Other Topics",
         memorizationTip: "Coalesce: Match update existing"
     },
     {
@@ -952,7 +952,7 @@ const questions = [
         correctIndex: 2,
         explanation: "Metric: Evaluate IT processes effectiveness.",
         weight: "Collaboration",
-        category: "Collaboration",
+        category: "Config Apps for Collaboration",
         memorizationTip: "Metric: Evaluate IT processes"
     },
     {
@@ -967,7 +967,7 @@ const questions = [
         correctIndex: 2,
         explanation: "Display sequence: Order field in Variable.",
         weight: "Self-Service & Process Automation",
-        category: "Self-Service & Process Automation",
+        category: "Self Service and Automation",
         memorizationTip: "Sequence: Order in Variable"
     },
     {
@@ -982,7 +982,7 @@ const questions = [
         correctIndex: [0, 3],
         explanation: "Reports from List heading and View/Run.",
         weight: "Collaboration",
-        category: "Collaboration",
+        category: "Config Apps for Collaboration",
         memorizationTip: "Reports: List heading, View/Run"
     },
     {
@@ -998,7 +998,7 @@ const questions = [
         correctIndex: [0, 2, 4],
         explanation: "KB Sort: Update, Relevancy, Views.",
         weight: "Collaboration",
-        category: "Collaboration",
+        category: "Config Apps for Collaboration",
         memorizationTip: "KB Sort: Update Relevancy Views"
     },
     {
@@ -1013,7 +1013,7 @@ const questions = [
         correctIndex: 2,
         explanation: "Path: REQ > RITM > TASK.",
         weight: "Self-Service & Process Automation",
-        category: "Self-Service & Process Automation",
+        category: "Self Service and Automation",
         memorizationTip: "Fulfillment: REQ RITM TASK"
     },
     {
@@ -1028,7 +1028,7 @@ const questions = [
         correctIndex: 1,
         explanation: "Favorites for quick access.",
         weight: "User Interface & Navigation",
-        category: "User Interface & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Quick access: Favorite"
     },
     {
@@ -1043,7 +1043,7 @@ const questions = [
         correctIndex: 2,
         explanation: "Order generates request.",
         weight: "Self-Service & Process Automation",
-        category: "Self-Service & Process Automation",
+        category: "Self Service and Automation",
         memorizationTip: "Order: Generates request"
     },
     {
@@ -1060,7 +1060,7 @@ const questions = [
         correctIndex: [1, 2, 3],
         explanation: "User menu: Log Out, Elevate, Impersonate.",
         weight: "User Interface & Navigation",
-        category: "User Interface & Navigation",
+        category: "Platform Overview",
         memorizationTip: "User Menu: Log Out Elevate Impersonate"
     },
     {
@@ -1076,7 +1076,7 @@ const questions = [
         correctIndex: [1, 2, 3],
         explanation: "Related lists: Catalog Task, HR Case, Problem Parent.",
         weight: "User Interface & Navigation",
-        category: "User Interface & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Related: Catalog HR Problem Parent"
     },
     {
@@ -1091,7 +1091,7 @@ const questions = [
         correctIndex: 1,
         explanation: "Rearrange: Right-click header > Configure > List Layout.",
         weight: "User Interface & Navigation",
-        category: "User Interface & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Rearrange: Right-click Configure Layout"
     },
     {
@@ -1106,7 +1106,7 @@ const questions = [
         correctIndex: [2, 3],
         explanation: "Source control: admin, source_control_admin.",
         weight: "Introduction to Development",
-        category: "Introduction to Development",
+        category: "Other Topics",
         memorizationTip: "Source Control: admin source_control_admin"
     },
     {
@@ -1122,7 +1122,7 @@ const questions = [
         correctIndex: 0,
         explanation: "Feature: Notifications triggered by events.",
         weight: "Collaboration",
-        category: "Collaboration",
+        category: "Config Apps for Collaboration",
         memorizationTip: "Inform users: Notifications"
     },
     // Continue adding the remaining questions to reach 71, using the extracted from ValidExamDumps, Quizlet, and common CSA questions from knowledge.
@@ -1139,7 +1139,7 @@ const questions = [
         correctIndex: 0,
         explanation: "Interfaces: Platform UI, Portal, Mobile Classic, Agent.",
         weight: "User Interface & Navigation",
-        category: "User Interface & Navigation",
+        category: "Platform Overview",
         memorizationTip: "Interfaces: Platform Portal Mobile Agent"
     }
 ];
@@ -1525,6 +1525,9 @@ function initApp() {
         if (userState.hearts <= 0) {
             showNoHeartsMessage();
         }
+    } else {
+        // If no progress, initialize defaults
+        saveProgress(); // Save initial state to avoid issues on clear
     }
     
     loadQuestion();
@@ -1562,6 +1565,9 @@ function initApp() {
         tabContentElements.forEach(content => content.classList.remove('active'));
         document.getElementById('review-tab').classList.add('active');
     });
+
+    submitButton.addEventListener('click', submitAnswer);
+    nextButton.addEventListener('click', nextQuestion);
 }
 
 // Load current question
@@ -1603,11 +1609,11 @@ function loadQuestion() {
     updateMarkButton();
     
     // Reset UI state
-    submitButton.disabled = true;
+    //submitButton.disabled = true;
     feedbackContainer.style.display = 'none';
 }
 
-// Submit answer
+    submitButton.disabled = true;
 function submitAnswer() {
     const current = questions[userState.currentQuestion];
     const isCorrect = userState.selectedOption === current.correctIndex;
@@ -1821,6 +1827,18 @@ function nextQuestion() {
     document.querySelectorAll('.option').forEach(option => {
         option.style.pointerEvents = 'auto';
     });
+
+    // Reset selected option and enable submit button only when new option selected
+    userState.selectedOption = null;
+    submitButton.disabled = true;
+
+    // Hide feedback for next question
+    feedbackContainer.style.display = 'none';
+
+    // Remove highlight classes from options
+    document.querySelectorAll('.option').forEach(option => {
+        option.classList.remove('correct', 'incorrect');
+    });
 }
 
 // Check if user leveled up
@@ -1841,11 +1859,28 @@ function updateStats() {
 
 // Update category progress display
 function updateCategoryProgress() {
-    progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"].answered}/7`;
-    progressDatabase.textContent = `${userState.categoryProgress["Instance Configuration"].answered}/11`;
-    progressAutomation.textContent = `${userState.categoryProgress["Config Apps for Collaboration"].answered}/20`;
-    progressConfig.textContent = `${userState.categoryProgress["Self Service and Automation"].answered}/20`;
-    progressIntegration.textContent = `${userState.categoryProgress["Other Topics"].answered}/42`;
+    // Calculate actual question counts per category
+    const categoryCounts = {
+        "Platform Overview": 0,
+        "Instance Configuration": 0,
+        "Config Apps for Collaboration": 0,
+        "Self Service and Automation": 0,
+        "Other Topics": 0
+    };
+    questions.forEach(q => {
+        // Normalize category names if needed
+        if (q.category === "Platform Overview & Navigation" || q.category === "User Interface & Navigation") categoryCounts["Platform Overview"]++;
+        else if (q.category === "Instance Configuration") categoryCounts["Instance Configuration"]++;
+        else if (q.category === "Config Apps for Collaboration" || q.category === "Collaboration") categoryCounts["Config Apps for Collaboration"]++;
+        else if (q.category === "Self Service and Automation" || q.category === "Self-Service & Process Automation") categoryCounts["Self Service and Automation"]++;
+        else categoryCounts["Other Topics"]++;
+    });
+
+    progressPlatform.textContent = `${userState.categoryProgress["Platform Overview"].answered}/${categoryCounts["Platform Overview"]}`;
+    progressDatabase.textContent = `${userState.categoryProgress["Instance Configuration"].answered}/${categoryCounts["Instance Configuration"]}`;
+    progressAutomation.textContent = `${userState.categoryProgress["Config Apps for Collaboration"].answered}/${categoryCounts["Config Apps for Collaboration"]}`;
+    progressConfig.textContent = `${userState.categoryProgress["Self Service and Automation"].answered}/${categoryCounts["Self Service and Automation"]}`;
+    progressIntegration.textContent = `${userState.categoryProgress["Other Topics"].answered}/${categoryCounts["Other Topics"]}`;
 }
 
 // Toggle mark question for review
@@ -1925,9 +1960,6 @@ function saveProgress() {
     localStorage.setItem('servicenowCSAProgress', JSON.stringify(progress));
 }
 
-// Event listeners
-submitButton.addEventListener('click', submitAnswer);
-nextButton.addEventListener('click', nextQuestion);
 
 // Initialize the app when page loads
 window.addEventListener('load', initApp);
