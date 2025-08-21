@@ -1,4 +1,4 @@
-// Database with CSA exam questions based on the provided study content
+// Database with CSA exam questions based on the provided study content 
 // Total 60 questions distributed approximately by weights: LD1 7% (4 questions), LD2 11% (7), LD3 20% (12), LD4 20% (12), Other Topics 42% (25)
 const questions = [
     // LD1: Platform Overview & Navigation (7%) - 4 questions
@@ -1125,8 +1125,6 @@ const questions = [
         category: "Config Apps for Collaboration",
         memorizationTip: "Inform users: Notifications"
     },
-    // Continue adding the remaining questions to reach 71, using the extracted from ValidExamDumps, Quizlet, and common CSA questions from knowledge.
-    // For example:
     {
         id: 75,
         question: "What are the different interfaces for accessing a ServiceNow Instance?",
@@ -1454,6 +1452,9 @@ let userState = {
     currentFlashcard: 0
 };
 
+// Global indexMap to store mapping of shuffled indices to original indices
+let indexMap = {};
+
 // DOM elements
 const questionElement = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
@@ -1495,6 +1496,15 @@ const noHeartsMessage = document.getElementById('no-hearts-message');
 const quizContainer = document.getElementById('quiz-container');
 const reviewList = document.getElementById('review-list');
 const reviewWrongButton = document.getElementById('review-wrong-answers');
+
+// Function to shuffle array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 // Initialize the application
 function initApp() {
@@ -1583,12 +1593,21 @@ function loadQuestion() {
     // Clear previous options
     optionsContainer.innerHTML = '';
     
+    // Shuffle options to randomize display order
+    const shuffledOptions = shuffleArray([...current.options.map((option, index) => ({ option, index }))]);
+    
+    // Store mapping of shuffled indices to original indices
+    indexMap = {};
+    shuffledOptions.forEach((item, shuffledIndex) => {
+        indexMap[shuffledIndex] = item.index;
+    });
+    
     // Add new options
-    current.options.forEach((option, index) => {
+    shuffledOptions.forEach((item, shuffledIndex) => {
         const optionElement = document.createElement('div');
         optionElement.classList.add('option');
-        optionElement.textContent = option;
-        optionElement.dataset.index = index;
+        optionElement.textContent = item.option;
+        optionElement.dataset.index = shuffledIndex;
         
         optionElement.addEventListener('click', () => {
             // Deselect previously selected option
@@ -1598,7 +1617,7 @@ function loadQuestion() {
             
             // Select new option
             optionElement.classList.add('selected');
-            userState.selectedOption = index;
+            userState.selectedOption = indexMap[shuffledIndex]; // Use original index
             submitButton.disabled = false;
         });
         
@@ -1609,14 +1628,21 @@ function loadQuestion() {
     updateMarkButton();
     
     // Reset UI state
-    //submitButton.disabled = true;
+    submitButton.disabled = true;
+    nextButton.disabled = true;
     feedbackContainer.style.display = 'none';
+    
+    // Remove highlight classes
+    document.querySelectorAll('.option').forEach(option => {
+        option.classList.remove('correct', 'incorrect');
+    });
 }
 
-    submitButton.disabled = true;
 function submitAnswer() {
     const current = questions[userState.currentQuestion];
-    const isCorrect = userState.selectedOption === current.correctIndex;
+    const isCorrect = Array.isArray(current.correctIndex)
+        ? current.correctIndex.includes(userState.selectedOption)
+        : userState.selectedOption === current.correctIndex;
     
     // Update category progress
     userState.categoryProgress[current.category].answered++;
@@ -1671,7 +1697,11 @@ function submitAnswer() {
         feedbackIcon.className = 'fas fa-times-circle feedback-icon';
         feedbackTitle.textContent = 'Incorrect Answer';
         feedbackTitle.parentElement.className = 'feedback-header feedback-incorrect';
-        feedbackMessage.textContent = `The correct answer is: ${current.options[current.correctIndex]}`;
+        feedbackMessage.textContent = `The correct answer is: ${
+            Array.isArray(current.correctIndex)
+                ? current.correctIndex.map(i => current.options[i]).join(', ')
+                : current.options[current.correctIndex]
+        }`;
         xpEarnedElement.textContent = '+0 XP earned';
     }
     
@@ -1682,10 +1712,19 @@ function submitAnswer() {
     // Highlight correct and incorrect answers
     document.querySelectorAll('.option').forEach(option => {
         const index = parseInt(option.dataset.index);
-        if (index === current.correctIndex) {
-            option.classList.add('correct');
-        } else if (index === userState.selectedOption && !isCorrect) {
-            option.classList.add('incorrect');
+        const originalIndex = indexMap[index];
+        if (Array.isArray(current.correctIndex)) {
+            if (current.correctIndex.includes(originalIndex)) {
+                option.classList.add('correct');
+            } else if (originalIndex === userState.selectedOption && !isCorrect) {
+                option.classList.add('incorrect');
+            }
+        } else {
+            if (originalIndex === current.correctIndex) {
+                option.classList.add('correct');
+            } else if (originalIndex === userState.selectedOption && !isCorrect) {
+                option.classList.add('incorrect');
+            }
         }
     });
     
@@ -1693,6 +1732,9 @@ function submitAnswer() {
     document.querySelectorAll('.option').forEach(option => {
         option.style.pointerEvents = 'none';
     });
+    
+    // Enable Next Question button
+    nextButton.disabled = false;
     
     // Save user progress
     updateStats();
@@ -1740,7 +1782,11 @@ function updateReviewList() {
         
         reviewItem.innerHTML = `
             <div class="review-question">${index + 1}. ${question.question}</div>
-            <div class="review-answer">Correct answer: ${question.options[question.correctIndex]}</div>
+            <div class="review-answer">Correct answer: ${
+                Array.isArray(question.correctIndex)
+                    ? question.correctIndex.map(i => question.options[i]).join(', ')
+                    : question.options[question.correctIndex]
+            }</div>
             <button class="btn btn-outline" data-id="${question.id}" style="margin-top: 10px;">
                 <i class="fas fa-check"></i> I've Learned This
             </button>
@@ -1869,7 +1915,7 @@ function updateCategoryProgress() {
     };
     questions.forEach(q => {
         // Normalize category names if needed
-        if (q.category === "Platform Overview & Navigation" || q.category === "User Interface & Navigation") categoryCounts["Platform Overview"]++;
+        if (q.category === "Platform Overview" || q.category === "User Interface & Navigation") categoryCounts["Platform Overview"]++;
         else if (q.category === "Instance Configuration") categoryCounts["Instance Configuration"]++;
         else if (q.category === "Config Apps for Collaboration" || q.category === "Collaboration") categoryCounts["Config Apps for Collaboration"]++;
         else if (q.category === "Self Service and Automation" || q.category === "Self-Service & Process Automation") categoryCounts["Self Service and Automation"]++;
@@ -1959,7 +2005,6 @@ function saveProgress() {
     };
     localStorage.setItem('servicenowCSAProgress', JSON.stringify(progress));
 }
-
 
 // Initialize the app when page loads
 window.addEventListener('load', initApp);
