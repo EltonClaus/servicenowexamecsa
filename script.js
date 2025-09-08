@@ -1,1023 +1,9 @@
 // Database with CSA exam questions based on the provided study content 
 // Total 60 questions distributed approximately by weights: LD1 7% (4 questions), LD2 11% (7), LD3 20% (12), LD4 20% (12), Other Topics 42% (25)
 const questions = [
-    // LD1: Platform Overview & Navigation (7%) - 4 questions
+    // LD1: Platform Overview & Navigation (7%) - Questions 8, 10, 16, 32, 61, 68, 70, 75
     {
         id: 1,
-        question: "Who are the founder and CEO of ServiceNow?",
-        options: [
-            "Fred Luddy and Bill McDermott",
-            "Bill Luddy and Fred Luddy",
-            "Bill McDermott and Fred Luddy",
-            "Bill Luddy and Bill McDermott"
-        ],
-        correctIndex: 0,
-        explanation: "ServiceNow was founded by Fred Luddy and is currently led by CEO Bill McDermott.",
-        weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview",
-        memorizationTip: "Founder: Fred Luddy, CEO: Bill McDermott"
-    },
-    {
-        id: 2,
-        question: "What are the four ServiceNow workflows?",
-        options: [
-            "IT Workflows, Customer Workflows, Creator Workflows, Employee Workflows",
-            "Technical Workflows, Business Workflows, Developer Workflows, User Workflows",
-            "Incident, Problem, Change, Request Workflows",
-            "Approval, Publish, Retire, Instant Workflows"
-        ],
-        correctIndex: 0,
-        explanation: "The four workflows are IT, Customer, Creator, and Employee Workflows.",
-        weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview",
-        memorizationTip: "Workflows: IT, Customer, Creator, Employee"
-    },
-    {
-        id: 3,
-        question: "What are the four ServiceNow interfaces?",
-        options: [
-            "The Next Experience (Unified Navigation), Now Mobile App, Service Portal, Employee Center",
-            "Classic UI, Workspace, Dashboard, Report Builder",
-            "Admin Console, User Portal, Mobile App, Developer Studio",
-            "Flow Designer, Virtual Agent, Integration Hub, Predictive Intelligence"
-        ],
-        correctIndex: 0,
-        explanation: "Interfaces: Next Experience, Now Mobile, Service Portal, Employee Center.",
-        weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview",
-        memorizationTip: "Interfaces: Next Experience, Mobile, Portal, Employee Center"
-    },
-    {
-        id: 4,
-        question: "What are the Incident Lifecycle states?",
-        options: [
-            "New, In Progress, On Hold, Resolved, Closed, Canceled",
-            "Open, Assigned, Working, Fixed, Verified, Closed",
-            "Draft, Review, Approve, Publish, Retire",
-            "Request, Approval, Fulfillment, Closure"
-        ],
-        correctIndex: 0,
-        explanation: "Incident states: New, In Progress, On Hold, Resolved, Closed, Canceled.",
-        weight: "LD1: Platform Overview & Navigation (7%)",
-        category: "Platform Overview",
-        memorizationTip: "Incident States: New > Progress > Hold > Resolved > Closed > Canceled"
-    },
-
-    // LD2: Instance Configuration (11%) - 7 questions
-    {
-        id: 5,
-        question: "What is the difference between Configuration and Customization in ServiceNow?",
-        options: [
-            "Configuration uses built-in functionality without code, Customization adds new functionality through plug-ins/scripts",
-            "Configuration requires code, Customization does not",
-            "Configuration is for users, Customization for admins",
-            "No difference, terms are interchangeable"
-        ],
-        correctIndex: 0,
-        explanation: "Configuration: No code built-in, Customization: Add via plugins/scripts.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Config: Built-in no code, Custom: Add new"
-    },
-    {
-        id: 6,
-        question: "What are the three environment types of ServiceNow instances?",
-        options: [
-            "Production, Non-Production, Subproduction",
-            "Dev, Test, Prod",
-            "Sandbox, Staging, Live",
-            "Primary, Backup, Replica"
-        ],
-        correctIndex: 0,
-        explanation: "Types: Production, Non-Production (Dev/QA), Subproduction.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Envs: Prod, Non-Prod, Subprod"
-    },
-    {
-        id: 7,
-        question: "How do you navigate to update the Company logo?",
-        options: [
-            "All > System Properties > My Company",
-            "All > User Administration > Companies",
-            "All > System Definition > Plugins",
-            "All > Self-Service > Dashboards"
-        ],
-        correctIndex: 0,
-        explanation: "System Properties > My Company.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Logo: Sys Props > My Company"
-    },
-    {
-        id: 8,
-        question: "How do you navigate to update the Company name?",
-        options: [
-            "All > User Administration > Companies",
-            "All > System Properties > My Company",
-            "All > System Definition > Plugins",
-            "All > Self-Service > Dashboards"
-        ],
-        correctIndex: 0,
-        explanation: "User Administration > Companies.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Company Name: User Admin > Companies"
-    },
-    {
-        id: 9,
-        question: "What are the five Persona types and their privileges?",
-        options: [
-            "System Administrator (all access except HR/Sec), Specialized Administrator (app management), Process User (specific functions, itil/approver), Approver (view/modify approvals), Requester (submit/manage requests)",
-            "Admin (full), User (basic), Developer (code), Manager (approve), Executive (view)",
-            "ITIL (process), ESS (self-service), KB Admin (knowledge), Catalog Admin (catalog), Report Admin (reports)",
-            "Fulfillers (tasks), Requesters (submit), Approvers (approve), Guests (view), Visitors (none)"
-        ],
-        correctIndex: 0,
-        explanation: "Personas: Sys Admin, Spec Admin, Process User, Approver, Requester.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Personas: Sys/Spec Admin, Process, Approver, Requester"
-    },
-    {
-        id: 10,
-        question: "What is the best practice for roles in ServiceNow?",
-        options: [
-            "Create Group, assign role to Group, add Users to Group",
-            "Assign roles directly to Users",
-            "Assign to departments",
-            "Use role delegation only"
-        ],
-        correctIndex: 0,
-        explanation: "Roles to Groups, Users to Groups.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Roles: Group assign, Users add"
-    },
-    {
-        id: 11,
-        question: "What is Application Scoping in ServiceNow?",
-        options: [
-            "Restricts access to application’s files and data from other apps/services",
-            "Scopes user access",
-            "Scopes workflow execution",
-            "Scopes report data"
-        ],
-        correctIndex: 0,
-        explanation: "Scoping: Restrict app data access.",
-        weight: "LD2: Instance Configuration (11%)",
-        category: "Instance Configuration",
-        memorizationTip: "Scoping: Restrict app files/data"
-    },
-
-    // LD3: Config Apps for Collaboration (20%) - 12 questions
-    {
-        id: 12,
-        question: "What are the three components of a Filter Condition?",
-        options: [
-            "Field, Operator, Value",
-            "Table, Column, Data",
-            "Query, Sort, Group",
-            "Condition, Action, Result"
-        ],
-        correctIndex: 0,
-        explanation: "Filter: Field, Operator, Value.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Filter: Field Operator Value"
-    },
-    {
-        id: 13,
-        question: "What are the three Classic List Context Menus?",
-        options: [
-            "List Control (view/filter), Column Options (reporting/config/export), Record Context (filter/assign)",
-            "Form, List, View",
-            "Personalize, Configure, Edit",
-            "Add, Remove, Reorder"
-        ],
-        correctIndex: 0,
-        explanation: "Menus: List Control, Column Options, Record Context.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Classic Menus: Control, Column, Record"
-    },
-    {
-        id: 14,
-        question: "How do you personalize a List in Classic View?",
-        options: [
-            "Click Personalize List gear icon, use List Collector to add/remove/reorder columns",
-            "Right-click header > Personalize",
-            "UI Builder > Personalize",
-            "Form Design > Personalize"
-        ],
-        correctIndex: 0,
-        explanation: "Personalize: Gear icon, List Collector.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Personalize List: Gear, Collector"
-    },
-    {
-        id: 15,
-        question: "How do you assign a Tag to a record?",
-        options: [
-            "Right-click field > Assign Tag > New Tag",
-            "Add Tag column > Inline edit",
-            "Form > More Options > Add Tag",
-            "All of the above"
-        ],
-        correctIndex: 3,
-        explanation: "Tags: Right-click Assign, or column edit, or Form Add.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Tags: Assign New"
-    },
-    {
-        id: 16,
-        question: "What are the three Workspace List viewing options?",
-        options: [
-            "Grid Mode, List Mode, Open List in New Tab",
-            "Classic, Modern, Advanced",
-            "Filtered, Sorted, Grouped",
-            "Personal, Global, Shared"
-        ],
-        correctIndex: 0,
-        explanation: "WS Lists: Grid, List, New Tab.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "WS Views: Grid List NewTab"
-    },
-    {
-        id: 17,
-        question: "What is the system property for inline editing in Lists?",
-        options: [
-            "glide.lists.inline_editing_enabled",
-            "glide.ui.list_edit",
-            "glide.ws.inline_edit",
-            "glide.list.inline"
-        ],
-        correctIndex: 0,
-        explanation: "Property: glide.lists.inline_editing_enabled.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Inline: glide.lists.inline_editing_enabled"
-    },
-    {
-        id: 18,
-        question: "What are the steps to configure Categories and UX Lists in UI Builder?",
-        options: [
-            "Configure List Category, Configure List and Add to Category, Make List Visible",
-            "Create View, Add Fields, Save",
-            "Edit Form, Add Sections, Publish",
-            "Build Report, Add Dashboard, Share"
-        ],
-        correctIndex: 0,
-        explanation: "UI Builder: Category, Add List, Visible.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "UI Builder: Category List Visible"
-    },
-    {
-        id: 19,
-        question: "What are the Form Design components?",
-        options: [
-            "Page Header, Field Navigator, Form Layout",
-            "Triggers, Conditions, Actions",
-            "Data, Type, Configure, Style",
-            "Lists, Forms, Related, Activity"
-        ],
-        correctIndex: 0,
-        explanation: "Form Design: Header, Navigator, Layout.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Form Design: Header Navigator Layout"
-    },
-    {
-        id: 20,
-        question: "What is a Formatter?",
-        options: [
-            "Form element displaying non-field information",
-            "Data formatting script",
-            "Report style",
-            "Field policy"
-        ],
-        correctIndex: 0,
-        explanation: "Formatter: Non-field info.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Formatter: Non-field"
-    },
-    {
-        id: 21,
-        question: "How do you customize a Choice List?",
-        options: [
-            "Right-click label > Configure Choices",
-            "Edit table",
-            "Script include",
-            "UI Policy"
-        ],
-        correctIndex: 0,
-        explanation: "Choice: Configure Choices.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Choice: Configure Choices"
-    },
-    {
-        id: 22,
-        question: "What is a Reference List?",
-        options: [
-            "Field selecting from referenced records",
-            "Choice from predefined",
-            "Dynamic script list",
-            "User list"
-        ],
-        correctIndex: 0,
-        explanation: "Reference: Referenced records.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Reference: Referenced records"
-    },
-    {
-        id: 23,
-        question: "What are the sections in Report Designer?",
-        options: [
-            "Data, Type, Configure, Style",
-            "When, Who, What",
-            "Triggers, Conditions, Actions",
-            "Header, Navigator, Layout"
-        ],
-        correctIndex: 0,
-        explanation: "Report: Data Type Configure Style.",
-        weight: "LD3: Config Apps for Collaboration (20%)",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Report Designer: Data Type Config Style"
-    },
-
-    // LD4: Self Service and Automation (20%) - 12 questions
-    {
-        id: 24,
-        question: "What is Knowledge Management?",
-        options: [
-            "Centralized location for creation, categorization, viewing, governance of information",
-            "Reporting tool",
-            "Workflow automation",
-            "User management"
-        ],
-        correctIndex: 0,
-        explanation: "Knowledge: Centralized info.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Knowledge: Create categorize view govern"
-    },
-    {
-        id: 25,
-        question: "What role administers Knowledge Bases?",
-        options: [
-            "knowledge_admin",
-            "admin",
-            "itil",
-            "kb_user"
-        ],
-        correctIndex: 0,
-        explanation: "Role: knowledge_admin.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "KB Admin: knowledge_admin"
-    },
-    {
-        id: 26,
-        question: "What is User Criteria in Knowledge Management?",
-        options: [
-            "Conditions to determine create/read/write/retire access",
-            "User roles",
-            "Workflow conditions",
-            "Report filters"
-        ],
-        correctIndex: 0,
-        explanation: "Criteria: Access control for articles.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Criteria: Create read write retire"
-    },
-    {
-        id: 27,
-        question: "What system property ensures logged in users access KBs?",
-        options: [
-            "glide.knowman.block_access_with_no_user_criteria",
-            "glide.kb.access",
-            "glide.user.kb",
-            "glide.access.kb"
-        ],
-        correctIndex: 0,
-        explanation: "Property: glide.knowman.block_access_with_no_user_criteria.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "KB Access: glide.knowman.block_access_with_no_user_criteria"
-    },
-    {
-        id: 28,
-        question: "What are the baseline publishing/retirement workflows?",
-        options: [
-            "Approval Publish, Approval Retire, Instant Publish, Instant Retire, Publish Knowledge, Retire Knowledge",
-            "New, Progress, Hold, Resolved, Closed, Canceled",
-            "Request, Approval, Fulfillment, Closure",
-            "Create, Edit, Approve, Publish, Retire, Archive"
-        ],
-        correctIndex: 0,
-        explanation: "Workflows: Approval/Instant Publish/Retire, Publish/Retire Knowledge.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "KB Workflows: Approval Instant Publish Retire, Publish Retire"
-    },
-    {
-        id: 29,
-        question: "What is the Service Catalog?",
-        options: [
-            "Robust ordering system for services and products",
-            "Knowledge repository",
-            "Reporting dashboard",
-            "User directory"
-        ],
-        correctIndex: 0,
-        explanation: "Catalog: Ordering system.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Catalog: Order services products"
-    },
-    {
-        id: 30,
-        question: "What role manages Service Catalog?",
-        options: [
-            "catalog_admin",
-            "admin",
-            "itil",
-            "sc_admin"
-        ],
-        correctIndex: 0,
-        explanation: "Role: catalog_admin.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Catalog: catalog_admin"
-    },
-    {
-        id: 31,
-        question: "What are the 5 major components of Service Catalog?",
-        options: [
-            "Catalog Items, Variables, Variable Sets, Record Producers, Flows",
-            "Lists, Forms, Views, Dashboards, Workspaces",
-            "Triggers, Conditions, Actions, Data, Subflows",
-            "Users, Groups, Roles, Permissions, Delegations"
-        ],
-        correctIndex: 0,
-        explanation: "Components: Items, Variables, Sets, Producers, Flows.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Catalog Components: Items Variables Sets Producers Flows"
-    },
-    {
-        id: 32,
-        question: "What is a Record Producer?",
-        options: [
-            "Simplified form translated into Task-based records",
-            "Report producer",
-            "Script record creator",
-            "Database producer"
-        ],
-        correctIndex: 0,
-        explanation: "Producer: Form to Tasks.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Producer: Form Tasks"
-    },
-    {
-        id: 33,
-        question: "What is an Order Guide?",
-        options: [
-            "Ability to order multiple related items as single request",
-            "Workflow guide",
-            "Report order",
-            "User ordering guide"
-        ],
-        correctIndex: 0,
-        explanation: "Order Guide: Multi items single request.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Order Guide: Multi single request"
-    },
-    {
-        id: 34,
-        question: "What are the table prefixes and tables for Request Management?",
-        options: [
-            "REQ sc_request, RITM sc_req_item, SCTASK sc_task",
-            "INC incident, PRB problem, CHG change",
-            "KB knowledge, ART article",
-            "USR sys_user, GRP sys_user_group"
-        ],
-        correctIndex: 0,
-        explanation: "Prefixes: REQ RITM SCTASK.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Request Tables: REQ RITM SCTASK"
-    },
-    {
-        id: 35,
-        question: "What are the 3 standard Flow stages for a catalog item?",
-        options: [
-            "Waiting for Approval, Request Approved, Completed",
-            "New, In Progress, Closed",
-            "Draft, Published, Retired",
-            "Create, Approve, Fulfill"
-        ],
-        correctIndex: 0,
-        explanation: "Stages: Approval, Approved, Completed.",
-        weight: "LD4: Self Service and Automation (20%)",
-        category: "Self Service and Automation",
-        memorizationTip: "Flow Stages: Approval Approved Completed"
-    },
-
-    // Other Topics (42%) - 25 questions (from MD3, MD5, MD6, etc.)
-    {
-        id: 36,
-        question: "What are the different types of Reports in ServiceNow?",
-        options: [
-            "Bars, Pies and Donuts, Time Series, Multi-dimensional reports, Scores, Other",
-            "Lists, Forms, Dashboards, Workspaces",
-            "Triggers, Actions, Flows, Subflows",
-            "Notifications, Emails, SMS, Invites"
-        ],
-        correctIndex: 0,
-        explanation: "Reports: Bars Pies Time Multi Scores Other.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Reports Types: Bars Pies Time Multi Scores Other"
-    },
-    {
-        id: 37,
-        question: "What are the Report Visibility Controls?",
-        options: [
-            "My Reports, Group, Global, All",
-            "Personal, Shared, Public, Private",
-            "Admin, User, Group, Role",
-            "View, Edit, Delete, Export"
-        ],
-        correctIndex: 0,
-        explanation: "Visibility: My Group Global All.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Report Vis: My Group Global All"
-    },
-    {
-        id: 38,
-        question: "What are the sections in Report Designer?",
-        options: [
-            "Data, Type, Configure, Style",
-            "When, Who, What",
-            "Triggers, Conditions, Actions",
-            "Header, Navigator, Layout"
-        ],
-        correctIndex: 0,
-        explanation: "Designer: Data Type Configure Style.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Report: Data Type Config Style"
-    },
-    {
-        id: 39,
-        question: "What are the Save options for a Report?",
-        options: [
-            "Save, Update, Insert, Insert and Stay",
-            "Publish, Schedule, Export, Share",
-            "Approve, Reject, Pending, Completed",
-            "Create, Edit, Delete, View"
-        ],
-        correctIndex: 0,
-        explanation: "Save: Save Update Insert InsertStay.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Report Save: Save Update Insert Stay"
-    },
-    {
-        id: 40,
-        question: "What are the Sharing menu options for a Report?",
-        options: [
-            "Share, Schedule, Export to PDF, Add to Dashboard, Publish",
-            "Save, Update, Insert, Delete",
-            "Approve, Reject, Pending, Closed",
-            "Create, Edit, View, Print"
-        ],
-        correctIndex: 0,
-        explanation: "Sharing: Share Schedule Export Add Publish.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Report Share: Share Schedule Export Add Publish"
-    },
-    {
-        id: 41,
-        question: "How do you share a Dashboard?",
-        options: [
-            "Click Sharing menu, specify Groups/Users/Roles for View/Edit",
-            "Add to Report",
-            "Publish URL",
-            "Export PDF"
-        ],
-        correctIndex: 0,
-        explanation: "Dashboard Share: Groups Users Roles View Edit.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Dashboard: Sharing View Edit"
-    },
-    {
-        id: 42,
-        question: "What is Interactive Analysis in ServiceNow?",
-        options: [
-            "Launch from List Column Menu to analyze data with filters",
-            "Workflow tool",
-            "Form designer",
-            "Notification builder"
-        ],
-        correctIndex: 0,
-        explanation: "Interactive: List analysis filters.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Interactive: Launch filters"
-    },
-    {
-        id: 43,
-        question: "What is a Form Template?",
-        options: [
-            "Auto-populates form fields for new records",
-            "Report template",
-            "Workflow template",
-            "Email template"
-        ],
-        correctIndex: 0,
-        explanation: "Template: Auto-fill forms.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Form Template: Auto-populate"
-    },
-    {
-        id: 44,
-        question: "What role grants ability to create/share Form Templates?",
-        options: [
-            "template_editor_group",
-            "admin",
-            "itil",
-            "form_admin"
-        ],
-        correctIndex: 0,
-        explanation: "Role: template_editor_group.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Template Role: template_editor_group"
-    },
-    {
-        id: 45,
-        question: "What is the best practice for managing Task-based records?",
-        options: [
-            "Assign to Groups, then to Individuals",
-            "Direct to Users",
-            "Auto-assign only",
-            "No assignment"
-        ],
-        correctIndex: 0,
-        explanation: "Tasks: Group then User assign.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Tasks: Group Individual"
-    },
-    {
-        id: 46,
-        question: "What is User Presence in ServiceNow?",
-        options: [
-            "Shows who is viewing/working on task and availability",
-            "User login status only",
-            "Presence in meetings",
-            "User location"
-        ],
-        correctIndex: 0,
-        explanation: "Presence: Viewing availability.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Presence: Viewing available"
-    },
-    {
-        id: 47,
-        question: "What are the types of Visual Task Boards?",
-        options: [
-            "Free-form (personal customizable), Data-driven (tied to data)",
-            "Grid, List",
-            "Classic, Workspace",
-            "Personal, Shared"
-        ],
-        correctIndex: 0,
-        explanation: "VTBs: Free-form, Data-driven.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "VTB: Free Data"
-    },
-    {
-        id: 48,
-        question: "What is a Notification in ServiceNow?",
-        options: [
-            "Alerts users via Email, SMS, Meeting Invitation",
-            "Report alert",
-            "Workflow notification only",
-            "User message"
-        ],
-        correctIndex: 0,
-        explanation: "Notification: Email SMS Invitation.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Notification: Email SMS Invite"
-    },
-    {
-        id: 49,
-        question: "What are the three tabs to create a Notification?",
-        options: [
-            "When to send, Who will receive, What it will contain",
-            "Data, Type, Style",
-            "Triggers, Conditions, Actions",
-            "Header, Body, Footer"
-        ],
-        correctIndex: 0,
-        explanation: "Tabs: When Who What.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Notification Tabs: When Who What"
-    },
-    {
-        id: 50,
-        question: "What is Watermark in Notifications?",
-        options: [
-            "Matches incoming email to records, format: prefix + ID + random string",
-            "Image watermark",
-            "User label",
-            "Tag for records"
-        ],
-        correctIndex: 0,
-        explanation: "Watermark: Email matching.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Watermark: Email match format"
-    },
-    {
-        id: 51,
-        question: "What is Sidebar in ServiceNow?",
-        options: [
-            "Real-time collaboration on task/interaction records with User Presence",
-            "Navigation bar",
-            "Report sidebar",
-            "Form sidebar"
-        ],
-        correctIndex: 0,
-        explanation: "Sidebar: Collaboration Presence.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Sidebar: Real-time collab"
-    },
-    {
-        id: 52,
-        question: "What is Integration Hub?",
-        options: [
-            "Automation with spokes",
-            "User integration",
-            "Report hub",
-            "Workflow hub"
-        ],
-        correctIndex: 0,
-        explanation: "Hub: Automation spokes.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Integration Hub: Spokes automation"
-    },
-    {
-        id: 53,
-        question: "What is Change Management importance?",
-        options: [
-            "Planned changes fitting requirements, scheduling, blackout windows, coordination",
-            "Unplanned changes",
-            "User changes only",
-            "Report changes"
-        ],
-        correctIndex: 0,
-        explanation: "Change: Planned scheduled.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Change: Planned blackout coord"
-    },
-    {
-        id: 54,
-        question: "What are the Upgrade Phases in ServiceNow?",
-        options: [
-            "Read notes plan, Prepare dev, Verify config schedule dev, Upgrade validate dev, Upgrade other non-prod, Prepare prod, Upgrade prod",
-            "Install, Configure, Test, Deploy",
-            "Create, Approve, Implement, Close",
-            "New, Progress, Hold, Resolved"
-        ],
-        correctIndex: 0,
-        explanation: "Upgrades: 7 phases from read to prod upgrade.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Upgrade: 7 phases read to prod"
-    },
-    {
-        id: 55,
-        question: "What is Performance Analytics vs Reporting?",
-        options: [
-            "PA: Historic trends forecasting, Reporting: Current state",
-            "Same thing",
-            "PA: Current, Reporting: Historic",
-            "PA: Reports, Reporting: Dashboards"
-        ],
-        correctIndex: 0,
-        explanation: "PA: Trends future, Report: Now.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "PA: Trends forecast, Report: Current"
-    },
-    {
-        id: 56,
-        question: "What are Instance Scan Checks types?",
-        options: [
-            "Table check, Column Type check, Script Only check, Linter Check",
-            "User, Group, Role, Permission",
-            "Trigger, Condition, Action, Data",
-            "List, Form, View, Dashboard"
-        ],
-        correctIndex: 0,
-        explanation: "Checks: Table Column Script Linter.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Scan Checks: Table Column Script Linter"
-    },
-    {
-        id: 57,
-        question: "What is a Suite in Instance Scan?",
-        options: [
-            "Group of individual checks and suites",
-            "Single check",
-            "Scan result",
-            "Cleanup tool"
-        ],
-        correctIndex: 0,
-        explanation: "Suite: Group checks.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Suite: Group checks"
-    },
-    {
-        id: 58,
-        question: "What is IT Adoption Journeys?",
-        options: [
-            "Central hub to discover platform capabilities and new apps",
-            "User journeys",
-            "Workflow journeys",
-            "Report journeys"
-        ],
-        correctIndex: 0,
-        explanation: "Journeys: Discover capabilities apps.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Adoption: Hub discover"
-    },
-    {
-        id: 59,
-        question: "What is a Family in ServiceNow releases?",
-        options: [
-            "Set of releases named after a major city (e.g., Tokyo)",
-            "Patch set",
-            "Upgrade group",
-            "App family"
-        ],
-        correctIndex: 0,
-        explanation: "Family: City named releases.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Family: City releases"
-    },
-    {
-        id: 60,
-        question: "What is the difference between Upgrading and Updating in ServiceNow?",
-        options: [
-            "Upgrading: To different family, Updating: Patch/hotfix within family",
-            "Same thing",
-            "Upgrading: Patch, Updating: Family",
-            "Upgrading: App, Updating: Instance"
-        ],
-        correctIndex: 0,
-        explanation: "Upgrade: Family, Update: Patch.",
-        weight: "Other Topics (42%)",
-        category: "Other Topics",
-        memorizationTip: "Upgrade: Family, Update: Patch"
-    },
-    {
-        id: 61,
-        question: "A Service Catalog may include which of the following components?",
-        options: [
-            "Order Guides, Exchange Rates, Calendars",
-            "Order Guides, Catalog Items, and Interceptors",
-            "Catalog Items, Asset Contracts, Task Surveys",
-            "Record Producers, Order Guides, and Catalog Items"
-        ],
-        correctIndex: 3,
-        explanation: "A Service Catalog includes Record Producers, Order Guides, and Catalog Items.",
-        weight: "Self-Service & Process Automation",
-        category: "Self Service and Automation",
-        memorizationTip: "Catalog: Record Producers, Order Guides, Items"
-    },
-    {
-        id: 62,
-        question: "Which one of the following statements applies to a set of fields when they are coalesced during an import?",
-        options: [
-            "If a match is found using the coalesce fields, the existing record is updated with the information being imported",
-            "If a match is not found using the coalesce fields, the system does not create a Transform Map",
-            "If a match is found using the coalesce fields, the system creates a new record",
-            "If a match is not found using the coalesce fields, the existing record is updated with the information being imported"
-        ],
-        correctIndex: 0,
-        explanation: "Coalesce updates existing if match found.",
-        weight: "Database Administration",
-        category: "Other Topics",
-        memorizationTip: "Coalesce: Match update existing"
-    },
-    {
-        id: 63,
-        question: "As it relates to ServiceNow reporting, which of the following statements describes what a metric can do?",
-        options: [
-            "A metric is a report gauge used on homepages to display real-time data",
-            "A metric is a time measurement used to report the effectiveness of workflows and SLAs",
-            "A metric is used to measure and evaluate the effectiveness of IT service management processes",
-            "A metric is a comparative measurement used to report the effectiveness of flows and SLAs"
-        ],
-        correctIndex: 2,
-        explanation: "Metric: Evaluate IT processes effectiveness.",
-        weight: "Collaboration",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Metric: Evaluate IT processes"
-    },
-    {
-        id: 64,
-        question: "The display sequence is controlled in a Service Catalog Item using which of the following?",
-        options: [
-            "The Default Value field in the Catalog Item form",
-            "The Sequence field in the Catalog Item form",
-            "The Order field in the Variable form",
-            "The Choice field in the Variable form"
-        ],
-        correctIndex: 2,
-        explanation: "Display sequence: Order field in Variable.",
-        weight: "Self-Service & Process Automation",
-        category: "Self Service and Automation",
-        memorizationTip: "Sequence: Order in Variable"
-    },
-    {
-        id: 65,
-        question: "Reports can be created from which different places in the platform? (Choose two.)",
-        options: [
-            "List column heading",
-            "Metrics module",
-            "Statistics module",
-            "View / Run module"
-        ],
-        correctIndex: [0, 3],
-        explanation: "Reports from List heading and View/Run.",
-        weight: "Collaboration",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Reports: List heading, View/Run"
-    },
-    {
-        id: 66,
-        question: "Knowledge Base Search results can be sorted by which of the following? (Choose three.)",
-        options: [
-            "Most recent update",
-            "Popularity",
-            "Relevancy",
-            "Manager assignment",
-            "Number of views"
-        ],
-        correctIndex: [0, 2, 4],
-        explanation: "KB Sort: Update, Relevancy, Views.",
-        weight: "Collaboration",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "KB Sort: Update Relevancy Views"
-    },
-    {
-        id: 67,
-        question: "What is the path an Administrator could take to view the fulfillment stage task list for an order placed by a user?",
-        options: [
-            "RITM (Number)>REQ (Number)>PROCUREMENT (Number)",
-            "REQ (Number)>RITM (Number)>PROCUREMENT (Number)",
-            "REQ (Number)>RITM (Number)>TASK (Number)",
-            "FULFILLMENT (Number)>RITM (Number)>TASK (Number)"
-        ],
-        correctIndex: 2,
-        explanation: "Path: REQ > RITM > TASK.",
-        weight: "Self-Service & Process Automation",
-        category: "Self Service and Automation",
-        memorizationTip: "Fulfillment: REQ RITM TASK"
-    },
-    {
-        id: 68,
         question: "Which term refers to application menus and modules which you may want to access quickly and often?",
         options: [
             "Breadcrumb",
@@ -1026,28 +12,13 @@ const questions = [
             "Bookmark"
         ],
         correctIndex: 1,
-        explanation: "Favorites for quick access.",
-        weight: "User Interface & Navigation",
+        explanation: "Favorites allow quick access to frequently used application menus and modules.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
         category: "Platform Overview",
         memorizationTip: "Quick access: Favorite"
     },
     {
-        id: 69,
-        question: "What is generated from the Service Catalog once a user places an order for an item or service?",
-        options: [
-            "A change request",
-            "An Order Guide",
-            "A request",
-            "An SLA"
-        ],
-        correctIndex: 2,
-        explanation: "Order generates request.",
-        weight: "Self-Service & Process Automation",
-        category: "Self Service and Automation",
-        memorizationTip: "Order: Generates request"
-    },
-    {
-        id: 70,
+        id: 2,
         question: "From the User menu, which actions can a user select? (Choose three.)",
         options: [
             "Send Notifications",
@@ -1058,75 +29,60 @@ const questions = [
             "Approve Records"
         ],
         correctIndex: [1, 2, 3],
-        explanation: "User menu: Log Out, Elevate, Impersonate.",
-        weight: "User Interface & Navigation",
+        explanation: "User menu actions include Log Out, Elevate Roles, and Impersonate Users.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
         category: "Platform Overview",
         memorizationTip: "User Menu: Log Out Elevate Impersonate"
     },
     {
-        id: 71,
-        question: "When adding a related list to a form, you choose the related list from the list collector. What is an example of a related list you might see on the list collector? Choose 3 answers",
+        id: 3,
+        question: "Which of the following would NOT appear in the History section of the Application Navigator?",
         options: [
-            "Release Phase == Parent",
-            "Catalog Task Parent",
-            "HR Case Parent",
-            "Problem Parent",
-            "Outage Task Number"
-        ],
-        correctIndex: [1, 2, 3],
-        explanation: "Related lists: Catalog Task, HR Case, Problem Parent.",
-        weight: "User Interface & Navigation",
-        category: "Platform Overview",
-        memorizationTip: "Related: Catalog HR Problem Parent"
-    },
-    {
-        id: 72,
-        question: "A colleague wants to rearrange the columns on their My Work list. Once the user has navigated to the list, where should they navigate to select and arrange the columns?",
-        options: [
-            "Click Personalize List",
-            "Right-click on any column header. Context Menu > Configure > List Layout",
-            "Click List Context Menu > Personalize List",
-            "Click List Content Menu > Configure > List Layout"
+            "Records",
+            "UI Pages",
+            "Lists",
+            "Forms"
         ],
         correctIndex: 1,
-        explanation: "Rearrange: Right-click header > Configure > List Layout.",
-        weight: "User Interface & Navigation",
+        explanation: "UI Pages do not appear in the History section of the Application Navigator.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
         category: "Platform Overview",
-        memorizationTip: "Rearrange: Right-click Configure Layout"
+        memorizationTip: "History: No UI Pages"
     },
     {
-        id: 73,
-        question: "Which roles grant access to source control repository operations such as importing applications from source control, or linking an application to source control? Choose 2 answers",
+        id: 4,
+        question: "When searching using the App Navigator search field, what can be returned? (Choose four.)",
         options: [
-            "source_control",
-            "git_admin",
-            "admin",
-            "source_control_admin"
+            "Names of Applications and Modules",
+            "Names of Modules",
+            "Names of Applications",
+            "Favorites",
+            "History Records",
+            "Titles of Dashboard Gauges"
         ],
-        correctIndex: [2, 3],
-        explanation: "Source control: admin, source_control_admin.",
-        weight: "Introduction to Development",
-        category: "Other Topics",
-        memorizationTip: "Source Control: admin source_control_admin"
+        correctIndex: [0, 1, 2, 3],
+        explanation: "App Navigator search returns Applications, Modules, and Favorites.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
+        category: "Platform Overview",
+        memorizationTip: "Search: Apps Modules Favorites"
     },
     {
-        id: 74,
-        question: "What ServiceNow feature can be triggered by events, and is used to inform users about activities or updates in ServiceNow?",
+        id: 5,
+        question: "Which section of the ServiceNow UI allows you to perform a global search?",
         options: [
-            "Notifications",
-            "Alerts",
-            "Texts",
-            "Events",
-            "Emails"
+            "Application Navigator",
+            "Banner frame",
+            "List pane",
+            "Content frame"
         ],
-        correctIndex: 0,
-        explanation: "Feature: Notifications triggered by events.",
-        weight: "Collaboration",
-        category: "Config Apps for Collaboration",
-        memorizationTip: "Inform users: Notifications"
+        correctIndex: 1,
+        explanation: "Global search is performed in the Banner frame.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
+        category: "Platform Overview",
+        memorizationTip: "Global Search: Banner frame"
     },
     {
-        id: 75,
+        id: 6,
         question: "What are the different interfaces for accessing a ServiceNow Instance?",
         options: [
             "Now Platform User Interface, Service Portal, ServiceNow Mobile Classic, ServiceNow Agent",
@@ -1135,10 +91,1273 @@ const questions = [
             "Flow, VA, Hub, PI"
         ],
         correctIndex: 0,
-        explanation: "Interfaces: Platform UI, Portal, Mobile Classic, Agent.",
-        weight: "User Interface & Navigation",
+        explanation: "Interfaces include Platform UI, Service Portal, Mobile Classic, and Agent.",
+        weight: "LD1: Platform Overview & Navigation (7%)",
         category: "Platform Overview",
         memorizationTip: "Interfaces: Platform Portal Mobile Agent"
+    },
+
+    // LD2: Instance Configuration (11%) - Questions 14, 17, 37, 42, 53, 66, 67, 70, 110
+    {
+        id: 7,
+        question: "What is the platform name for the User table?",
+        options: [
+            "u_users",
+            "sys_users",
+            "x_users",
+            "sys_user"
+        ],
+        correctIndex: 3,
+        explanation: "The User table is named sys_user in ServiceNow.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "User Table: sys_user"
+    },
+    {
+        id: 8,
+        question: "Which one of the following statements is a recommendation from ServiceNow about Update Sets?",
+        options: [
+            "Avoid using the Default Update set as an Update Set for moving customizations from instance to instance",
+            "Before moving customizations from instance to instance with Update Sets, ensure that both instances are different versions",
+            "Use the Baseline Update Set to store the contents of items after they are changed the first time",
+            "Once an Update Set is closed as Complete, change it back to In Progress until it is applied to another instance"
+        ],
+        correctIndex: 0,
+        explanation: "Avoid Default Update Set for moving customizations.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Update Sets: Avoid Default"
+    },
+    {
+        id: 9,
+        question: "What is the function of user impersonation?",
+        options: [
+            "Testing and visibility",
+            "Activate verbose logging",
+            "View custom perspectives",
+            "Unlock Application master list"
+        ],
+        correctIndex: 0,
+        explanation: "Impersonation is used for testing and visibility.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Impersonation: Test visibility"
+    },
+    {
+        id: 10,
+        question: "Which group of permissions is used to control Application and Module access?",
+        options: [
+            "Access Control Rules",
+            "UI Policies",
+            "Roles",
+            "Assignment Rules"
+        ],
+        correctIndex: 2,
+        explanation: "Roles control Application and Module access.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Access: Roles"
+    },
+    {
+        id: 11,
+        question: "Where can Admins check which release is running on a ServiceNow instance?",
+        options: [
+            "Memory Stats module",
+            "Stats module",
+            "System.upgraded table",
+            "Transactions log"
+        ],
+        correctIndex: 1,
+        explanation: "Check release in Stats module.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Release: Stats module"
+    },
+    {
+        id: 12,
+        question: "How is a group defined in ServiceNow?",
+        options: [
+            "A group is one record stored in the Group Type [sys_user_group_type] table",
+            "A group is one record stored in the Group [sys_user_group] table",
+            "A group defines a set of users that share the same location",
+            "A group defines a set of users that share the same job title"
+        ],
+        correctIndex: 1,
+        explanation: "Groups are defined in sys_user_group table.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Group: sys_user_group"
+    },
+    {
+        id: 13,
+        question: "What is a role in ServiceNow?",
+        options: [
+            "A role is one record in the Role [user_sys_role] table",
+            "A role is a set of modules for a particular application",
+            "A role is one record in the Role [sys_user_role] table",
+            "A role is a persona used in Live Feed Chat"
+        ],
+        correctIndex: 2,
+        explanation: "Roles are defined in sys_user_role table.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Role: sys_user_role"
+    },
+    {
+        id: 14,
+        question: "What is (are) best practice(s) regarding users/groups/roles? (Choose two.)",
+        options: [
+            "You should never assign roles to groups.",
+            "You should assign roles to users.",
+            "You should add users to groups.",
+            "You should assign roles to groups."
+        ],
+        correctIndex: [2, 3],
+        explanation: "Best practice: Add users to groups, assign roles to groups.",
+        weight: "LD2: Instance Configuration (11%)",
+        category: "Instance Configuration",
+        memorizationTip: "Best Practice: Users to groups, roles to groups"
+    },
+
+    // LD3: Config Apps for Collaboration (20%) - Questions 5, 6, 20, 29, 63, 65, 66
+    {
+        id: 15,
+        question: "Reports can be created from which different places in the platform? (Choose two.)",
+        options: [
+            "List column heading",
+            "Metrics module",
+            "Statistics module",
+            "View / Run module"
+        ],
+        correctIndex: [0, 3],
+        explanation: "Reports can be created from List column heading and View/Run module.",
+        weight: "LD3: Config Apps for Collaboration (20%)",
+        category: "Config Apps for Collaboration",
+        memorizationTip: "Reports: List heading, View/Run"
+    },
+    {
+        id: 16,
+        question: "Knowledge Base Search results can be sorted by which of the following? (Choose three.)",
+        options: [
+            "Most recent update",
+            "Popularity",
+            "Relevancy",
+            "Manager assignment",
+            "Number of views"
+        ],
+        correctIndex: [0, 2, 4],
+        explanation: "Knowledge Base search results can be sorted by Most recent update, Relevancy, and Number of views.",
+        weight: "LD3: Config Apps for Collaboration (20%)",
+        category: "Config Apps for Collaboration",
+        memorizationTip: "KB Sort: Update Relevancy Views"
+    },
+    {
+        id: 17,
+        question: "Which one of the following statements is true about Column Context Menus?",
+        options: [
+            "It displays actions such as creating quick reports, configuring the list, and exporting data",
+            "It displays actions related to filtering options, assigning tags, and search",
+            "It displays actions related to viewing and filtering the entire list",
+            "It displays actions such as view form, view related task, and add relationship"
+        ],
+        correctIndex: 0,
+        explanation: "Column Context Menus include actions for quick reports, list configuration, and data export.",
+        weight: "LD3: Config Apps for Collaboration (20%)",
+        category: "Config Apps for Collaboration",
+        memorizationTip: "Column Menu: Reports Config Export"
+    },
+    {
+        id: 18,
+        question: "Which tool is used to have conversations with logged-in users in real-time?",
+        options: [
+            "Connect Chat",
+            "Now Messenger",
+            "User Presence",
+            "Comments"
+        ],
+        correctIndex: 0,
+        explanation: "Connect Chat is used for real-time conversations with logged-in users.",
+        weight: "LD3: Config Apps for Collaboration (20%)",
+        category: "Config Apps for Collaboration",
+        memorizationTip: "Real-time Chat: Connect Chat"
+    },
+    {
+        id: 19,
+        question: "As it relates to ServiceNow reporting, which of the following statements describes what a metric can do?",
+        options: [
+            "A metric is a report gauge used on homepages to display real-time data",
+            "A metric is a time measurement used to report the effectiveness of workflows and SLAs",
+            "A metric is used to measure and evaluate the effectiveness of IT service management processes",
+            "A metric is a comparative measurement used to report the effectiveness of flows and SLAs"
+        ],
+        correctIndex: 2,
+        explanation: "Metrics measure and evaluate the effectiveness of IT service management processes.",
+        weight: "LD3: Config Apps for Collaboration (20%)",
+        category: "Config Apps for Collaboration",
+        memorizationTip: "Metric: Evaluate IT processes"
+    },
+
+    // LD4: Self Service and Automation (20%) - Questions 1, 4, 7, 9, 12, 19, 28, 43, 44, 47, 49, 51, 57, 67, 97
+    {
+        id: 20,
+        question: "A Service Catalog may include which of the following components?",
+        options: [
+            "Order Guides, Exchange Rates, Calendars",
+            "Order Guides, Catalog Items, and Interceptors",
+            "Catalog Items, Asset Contracts, Task Surveys",
+            "Record Producers, Order Guides, and Catalog Items"
+        ],
+        correctIndex: 3,
+        explanation: "Service Catalog includes Record Producers, Order Guides, and Catalog Items.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Catalog: Record Producers, Order Guides, Items"
+    },
+    {
+        id: 21,
+        question: "The display sequence is controlled in a Service Catalog Item using which of the following?",
+        options: [
+            "The Default Value field in the Catalog Item form",
+            "The Sequence field in the Catalog Item form",
+            "The Order field in the Variable form",
+            "The Choice field in the Variable form"
+        ],
+        correctIndex: 2,
+        explanation: "Display sequence is controlled by the Order field in the Variable form.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Sequence: Order in Variable"
+    },
+    {
+        id: 22,
+        question: "What is the path an Administrator could take to view the fulfillment stage task list for an order placed by a user?",
+        options: [
+            "RITM (Number)>REQ (Number)>PROCUREMENT (Number)",
+            "REQ (Number)>RITM (Number)>PROCUREMENT (Number)",
+            "REQ (Number)>RITM (Number)>TASK (Number)",
+            "FULFILLMENT (Number)>RITM (Number)>TASK (Number)"
+        ],
+        correctIndex: 2,
+        explanation: "Path to view fulfillment tasks: REQ > RITM > TASK.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Fulfillment: REQ RITM TASK"
+    },
+    {
+        id: 23,
+        question: "What is generated from the Service Catalog once a user places an order for an item or service?",
+        options: [
+            "A change request",
+            "An Order Guide",
+            "A request",
+            "An SLA"
+        ],
+        correctIndex: 2,
+        explanation: "Placing an order in the Service Catalog generates a request.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Order: Generates request"
+    },
+    {
+        id: 24,
+        question: "Which of the following is true of Service Catalog Items in relation to the Service Catalog?",
+        options: [
+            "They run behind the scenes.",
+            "They are the building blocks.",
+            "They are optional.",
+            "They provide options."
+        ],
+        correctIndex: 1,
+        explanation: "Service Catalog Items are the building blocks of the Service Catalog.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Catalog Items: Building blocks"
+    },
+    {
+        id: 25,
+        question: "For Administrators creating new Service Catalog items, what is a characteristic they should know about Service Catalog variables?",
+        options: [
+            "Service Catalog variables can only be used in Record Producers",
+            "Service Catalog variables can only be used in Order Guides",
+            "Service Catalog variables cannot affect the order price",
+            "Service Catalog variables are global by default"
+        ],
+        correctIndex: 3,
+        explanation: "Service Catalog variables are global by default.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Variables: Global by default"
+    },
+    {
+        id: 26,
+        question: "Which of the following statement describes the purpose of an Order Guide?",
+        options: [
+            "Order Guides restrict the number of items in an order to only one item per request",
+            "Order Guide provide a list of guidelines for Administrators on how to set up item variables",
+            "Order Guide provide the ability to order multiple, related items as one request",
+            "Order Guides take the user directly to the checkout without prompting for information"
+        ],
+        correctIndex: 2,
+        explanation: "Order Guides allow ordering multiple related items as a single request.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Order Guide: Multi single request"
+    },
+    {
+        id: 27,
+        question: "What is a Record Producer?",
+        options: [
+            "A Record Producer is a type of Catalog Item that is used for Requests, not Services",
+            "A Record Producer creates user records",
+            "A Record Producer is a type of Catalog Item that provides easy ordering by bundling requests",
+            "A Record Producer is a type of a Catalog Item that allows users to create task-based records from the Service Catalog"
+        ],
+        correctIndex: 3,
+        explanation: "Record Producer creates task-based records from the Service Catalog.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Producer: Form Tasks"
+    },
+    {
+        id: 28,
+        question: "Create Incident, Password Reset, and Report outage: what do these services in the Service Catalog have in common?",
+        options: [
+            "They direct the user to a record producer",
+            "They direct the user to a catalog property",
+            "They direct the user to a catalog UI policy",
+            "They direct the user to a catalog client script"
+        ],
+        correctIndex: 0,
+        explanation: "These services direct users to a record producer.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Services: Direct to Record Producer"
+    },
+    {
+        id: 29,
+        question: "What module in the Service Catalog application does an Administrator access to begin creating a new item?",
+        options: [
+            "Maintain Categories",
+            "Maintain Items",
+            "Content Items",
+            "Items"
+        ],
+        correctIndex: 1,
+        explanation: "Administrators use the Maintain Items module to create new Service Catalog items.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Create Item: Maintain Items"
+    },
+    {
+        id: 30,
+        question: "Which three Variable Types can be added to a Service Catalog Item?",
+        options: [
+            "True/False, Multiple Choice, and Ordered",
+            "True/False, Checkbox, and Number List",
+            "Number List, Single Line Text, and Reference",
+            "Multiple Choice, Select Box, and Checkbox"
+        ],
+        correctIndex: 3,
+        explanation: "Variable Types: Multiple Choice, Select Box, Checkbox.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Variables: Choice Select Checkbox"
+    },
+    {
+        id: 31,
+        question: "The baseline Service Catalog homepage contains links to which of the following components?",
+        options: [
+            "Record Producers, Order Guides, and Catalog Items",
+            "Order Guides, Item Variables, and flows",
+            "Order Guides, Catalog Items, and flows",
+            "Record Producers, Order Guides, and Item Variables"
+        ],
+        correctIndex: 0,
+        explanation: "Baseline Catalog homepage links to Record Producers, Order Guides, and Catalog Items.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Catalog Homepage: Producers Guides Items"
+    },
+    {
+        id: 32,
+        question: "Which one of the following statements describes the purpose of a Service Catalog flow?",
+        options: [
+            "A Service Catalog flow generates three basic components: item variable types, tasks, and approvals",
+            "Although a Service Catalog flow cannot send notifications, the flow drives complex fulfillment processes",
+            "A Service Catalog flow is used to drive complex fulfillment processes and sends notifications to defined users or groups",
+            "A Service Catalog flow generates three basic components: item variable types, tasks, and notifications"
+        ],
+        correctIndex: 2,
+        explanation: "Service Catalog flow drives fulfillment and sends notifications.",
+        weight: "LD4: Self Service and Automation (20%)",
+        category: "Self Service and Automation",
+        memorizationTip: "Catalog Flow: Fulfillment Notifications"
+    },
+
+    // Other Topics (42%) - Questions 2, 11, 13, 18, 21, 23, 24, 26, 30, 31, 33, 34, 35, 36, 38, 39, 40, 42, 45, 46, 48, 50, 52, 54, 55, 56, 58, 59, 60, 62, 73, 74, 80, 81, 83, 84, 85, 86, 88, 90, 92, 94, 95, 96, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130
+    {
+        id: 33,
+        question: "Which one of the following statements applies to a set of fields when they are coalesced during an import?",
+        options: [
+            "If a match is found using the coalesce fields, the existing record is updated with the information being imported",
+            "If a match is not found using the coalesce fields, the system does not create a Transform Map",
+            "If a match is found using the coalesce fields, the system creates a new record",
+            "If a match is not found using the coalesce fields, the existing record is updated with the information being imported"
+        ],
+        correctIndex: 0,
+        explanation: "Coalesce updates existing record if a match is found.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Coalesce: Match update existing"
+    },
+    {
+        id: 34,
+        question: "Buttons, form links, and context menu items are all examples of what type of functionality?",
+        options: [
+            "Business Rule",
+            "UI Action",
+            "Client Script",
+            "UI Policy"
+        ],
+        correctIndex: 1,
+        explanation: "UI Actions include buttons, form links, and context menu items.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "UI Actions: Buttons Links Menus"
+    },
+    {
+        id: 35,
+        question: "Table Access Control rules are processed in the following order:",
+        options: [
+            "any table name (wildcard), parent table name, table name",
+            "table name, parent table name, any table name (wildcard)",
+            "parent table name, table name, any table name (wildcard)",
+            "any table name (wildcard), table name, parent table name"
+        ],
+        correctIndex: 1,
+        explanation: "Access Control: table, parent, wildcard.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Access Control: Table Parent Wildcard"
+    },
+    {
+        id: 36,
+        question: "Which is used to initiate a flow?",
+        options: [
+            "A Trigger",
+            "Core Action",
+            "A spoke",
+            "An Event"
+        ],
+        correctIndex: 0,
+        explanation: "Flows are initiated by a Trigger.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Flow: Trigger"
+    },
+    {
+        id: 37,
+        question: "Which ServiceNow products can be used to discover and populate the CMDB? (Choose two.)",
+        options: [
+            "Discovery",
+            "IntegrationHub ETL",
+            "Finder",
+            "CMDB Plug-in",
+            "CMDB Integration Dashboard"
+        ],
+        correctIndex: [0, 1],
+        explanation: "CMDB populated by Discovery and IntegrationHub ETL.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "CMDB: Discovery IntegrationHub"
+    },
+    {
+        id: 38,
+        question: "When using the Load Data and Transform Map process, what is the Mapping Assist used for?",
+        options: [
+            "Mapping fields using the Import Log",
+            "Mapping fields using Transform History",
+            "Mapping fields using an SLA",
+            "Mapping fields using a Field Map"
+        ],
+        correctIndex: 3,
+        explanation: "Mapping Assist is used for mapping fields using a Field Map.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Mapping Assist: Field Map"
+    },
+    {
+        id: 39,
+        question: "Which of the following statements describes the contents of the Configuration Management Database (CMDB)?",
+        options: [
+            "The CMDB contains data about tangible and intangible business assets",
+            "The CMDB contains the Business Rules that direct the intangible, configurable assets used by a company",
+            "The CMDB archives all Service Management PaaS equipment metadata and usage statistics",
+            "The CMDB contains ITIL process data pertaining to configuration items"
+        ],
+        correctIndex: 0,
+        explanation: "CMDB contains data about tangible and intangible business assets.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "CMDB: Tangible Intangible Assets"
+    },
+    {
+        id: 40,
+        question: "In what order should filter elements be specified?",
+        options: [
+            "Field, Operator, then Value",
+            "Field, Operator, then Condition",
+            "Operator, Condition, then Value",
+            "Value, Operator, then Field"
+        ],
+        correctIndex: 0,
+        explanation: "Filter elements: Field, Operator, Value.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Filter: Field Operator Value"
+    },
+    {
+        id: 41,
+        question: "Which of the following are a type of client scripts supported in ServiceNow? (Choose four.)",
+        options: [
+            "onSubmit",
+            "onUpdate",
+            "onCellEdit",
+            "onLoad",
+            "onEdit",
+            "onChange",
+            "onSave"
+        ],
+        correctIndex: [0, 2, 3, 5],
+        explanation: "Client Scripts: onSubmit, onCellEdit, onLoad, onChange.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Client Scripts: Submit CellEdit Load Change"
+    },
+    {
+        id: 42,
+        question: "Which type of tables may be extended by other tables, but do not extend another table?",
+        options: [
+            "Base Tables",
+            "Core Tables",
+            "Extended Tables",
+            "Custom Tables"
+        ],
+        correctIndex: 0,
+        explanation: "Base Tables can be extended but do not extend others.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Base Tables: Extendable"
+    },
+    {
+        id: 43,
+        question: "Which of the following concepts are associated with the ServiceNow CMDB? (Choose four.)",
+        options: [
+            "Service Processes",
+            "User Permissions",
+            "Tables and Fields",
+            "A Database",
+            "The Dependency View"
+        ],
+        correctIndex: [0, 2, 3, 4],
+        explanation: "CMDB concepts: Service Processes, Tables and Fields, Database, Dependency View.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "CMDB: Processes Tables Database Dependency"
+    },
+    {
+        id: 44,
+        question: "What is a formatter?",
+        options: [
+            "A formatter allows you to configure applications on your instance",
+            "A formatter is a form element used to display information that is not a field in the record",
+            "A formatter allows you to populate fields automatically",
+            "A formatter is a set of conditions applied to a table to help find and work with data"
+        ],
+        correctIndex: 1,
+        explanation: "Formatter displays non-field information on a form.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Formatter: Non-field info"
+    },
+    {
+        id: 45,
+        question: "Which technique is used to get information from a series of referenced fields from different tables?",
+        options: [
+            "Table-Walking",
+            "Sys_ID Pulling",
+            "Dot-Walking",
+            "Record-Hopping"
+        ],
+        correctIndex: 2,
+        explanation: "Dot-Walking retrieves data from referenced fields across tables.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Dot-Walking: Referenced fields"
+    },
+    {
+        id: 46,
+        question: "What is a schema map?",
+        options: [
+            "A schema map enables administrators to define records from specific tables as trouble sources for Configuration Items",
+            "A schema map graphically organizes the visual task boards for the CMDB",
+            "A schema map graphically displays the Configuration Items that support a business service",
+            "A schema map displays the details of tables and their relationships in a visual manner, allowing administrators to view and easily access different parts of the database schema"
+        ],
+        correctIndex: 3,
+        explanation: "Schema map shows table relationships visually.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Schema Map: Visual table relationships"
+    },
+    {
+        id: 47,
+        question: "Which one of the following statements best describes the purpose of an Update Set?",
+        options: [
+            "An Update Set allows administrators to group a series of changes into a named set and then move this set as a unit to other systems",
+            "By default, an Update Set includes customizations, Business Rules, and homepages",
+            "An Update Set is a group of customizations that is moved from Production to Development",
+            "By default, the changes included in an Update Set are visible only in the instance to which they are applied"
+        ],
+        correctIndex: 0,
+        explanation: "Update Set groups changes for transfer between systems.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Update Set: Group changes transfer"
+    },
+    {
+        id: 48,
+        question: "Which of the following can be customized through the Basic Configuration UI 16 module? (Choose three.)",
+        options: [
+            "Banner Image",
+            "Record Number Format",
+            "Browser Tab Title",
+            "System Date Format",
+            "Form Header Size"
+        ],
+        correctIndex: [0, 2, 3],
+        explanation: "UI 16 customizes Banner Image, Browser Tab Title, System Date Format.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "UI 16: Banner Title Date"
+    },
+    {
+        id: 49,
+        question: "What information does the System Dictionary contain?",
+        options: [
+            "The human-readable labels and language settings",
+            "The definition for each table and column",
+            "The information on how tables relate to each other",
+            "The language dictionary used for spell checking"
+        ],
+        correctIndex: 1,
+        explanation: "System Dictionary contains definitions for tables and columns.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Dictionary: Table Column Definitions"
+    },
+    {
+        id: 50,
+        question: "When working on a form, what is the difference between Insert and Update operations?",
+        options: [
+            "Insert creates a new record and Update saves changes, both remain on the form",
+            "Insert creates a new record and Update saves changes, both exit the form",
+            "Insert saves changes and exits the form, Update saves changes and remains on the form",
+            "Insert saves changes and remains on the form, Update saves changes and exits the form"
+        ],
+        correctIndex: 3,
+        explanation: "Insert saves and stays, Update saves and exits.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Insert: Stay, Update: Exit"
+    },
+    {
+        id: 51,
+        question: "How is the Event Log different from the Event Registry?",
+        options: [
+            "Event Log contains generated Events, the Event Registry is a table of Event definitions",
+            "Event Log is formatted in the Log style, the Event Registry displays different fields",
+            "Event Log lists Events that were triggered by integrations, the Event Registry lists the Events that were triggered during the day (24-hour period)",
+            "Event Log is the same as the Event Registry"
+        ],
+        correctIndex: 0,
+        explanation: "Event Log: Generated events, Event Registry: Event definitions.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Event Log: Generated, Registry: Definitions"
+    },
+    {
+        id: 52,
+        question: "What is a Dictionary Override?",
+        options: [
+            "A Dictionary Override is an incoming customer update in an Update Set which applies to the same objects as a newer local customer update",
+            "A Dictionary Override is the addition, modification, or removal of anything that could have an effect on IT services",
+            "A Dictionary Override is a task within a flow that requests an action before the flow can continue",
+            "A Dictionary Override sets field properties in extended tables"
+        ],
+        correctIndex: 3,
+        explanation: "Dictionary Override sets field properties in extended tables.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Override: Field properties extended"
+    },
+    {
+        id: 53,
+        question: "What is the Import Set Table?",
+        options: [
+            "A table where data will be placed, post-transformation",
+            "A table that determines relationships",
+            "A staging area for imported records",
+            "A repository for Update Set information"
+        ],
+        correctIndex: 2,
+        explanation: "Import Set Table is a staging area for imported records.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Import Set: Staging area"
+    },
+    {
+        id: 54,
+        question: "What is a characteristic of importing data into ServiceNow?",
+        options: [
+            "An existing Transform Map can be used one time on the same import set",
+            "Coalesce fields are used only after running Transform",
+            "Any user can manage and set up import sets",
+            "An existing Transform Map can be used multiple times on the same import set"
+        ],
+        correctIndex: 3,
+        explanation: "Transform Map can be used multiple times on the same import set.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Import: Transform Map reuse"
+    },
+    {
+        id: 55,
+        question: "Which of the following allows a user to edit field values in a list without opening the form?",
+        options: [
+            "Data Editor",
+            "Edit Menu",
+            "List Editor",
+            "Form Designer"
+        ],
+        correctIndex: 2,
+        explanation: "List Editor allows editing field values in a list without opening the form.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Edit List: List Editor"
+    },
+    {
+        id: 56,
+        question: "How are Workflows moved between instances?",
+        options: [
+            "Workflows are moved using Update Sets",
+            "Workflows are moved using Transform Maps",
+            "Workflows are moved using Application Sets",
+            "Workflows cannot be moved between instances"
+        ],
+        correctIndex: 0,
+        explanation: "Workflows are moved using Update Sets.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Workflows: Update Sets"
+    },
+    {
+        id: 57,
+        question: "Which of the following statements is true when a new table is created by extending another table?",
+        options: [
+            "The new table archives the parent table and assumed its roles in the database",
+            "The new table inherits all of the Business Rules, Client Scripts, and UI Policies of the parent table, but none of the existing fields",
+            "The new table inherits all of the fields of the parent table and can also contain new fields unique to itself",
+            "The new table inherits all of the fields, but does not inherit Access Control rules, Client Scripts, and UI Policies of the parent table"
+        ],
+        correctIndex: 2,
+        explanation: "New table inherits parent fields and can have unique fields.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Extended Table: Inherits fields"
+    },
+    {
+        id: 58,
+        question: "A knowledge article must be which of the following states to display to a user?",
+        options: [
+            "Published",
+            "Drafted",
+            "Retired",
+            "Reviewed"
+        ],
+        correctIndex: 0,
+        explanation: "Knowledge articles must be Published to display to users.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Article Display: Published"
+    },
+    {
+        id: 59,
+        question: "What is the name of the conversational bot platform that provides assistance to help users obtain information, make decisions, and perform common tasks?",
+        options: [
+            "Answer Agent",
+            "live Feed",
+            "Virtual Agent",
+            "Connect Chat"
+        ],
+        correctIndex: 2,
+        explanation: "Virtual Agent is the conversational bot platform.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Bot: Virtual Agent"
+    },
+    {
+        id: 60,
+        question: "What is the purpose of a Related List?",
+        options: [
+            "To create a one-to-many relationship",
+            "To dot-walk to a core table",
+            "To present related fields",
+            "To present related records"
+        ],
+        correctIndex: 3,
+        explanation: "Related List presents related records.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Related List: Related records"
+    },
+    {
+        id: 61,
+        question: "Which term best describes something that is created, has work performed upon it, and is eventually moved to a state of closed?",
+        options: [
+            "report",
+            "flow",
+            "event",
+            "task"
+        ],
+        correctIndex: 3,
+        explanation: "Tasks are created, worked on, and closed.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Task: Created Worked Closed"
+    },
+    {
+        id: 62,
+        question: "Which are valid ServiceNow User Authentication Methods? (Choose three.)",
+        options: [
+            "XML feed",
+            "Local database",
+            "LDAP",
+            "SSO",
+            "FTP authentication"
+        ],
+        correctIndex: [1, 2, 3],
+        explanation: "Authentication methods: Local database, LDAP, SSO.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Auth: Local LDAP SSO"
+    },
+    {
+        id: 63,
+        question: "Access Control rules may be defined with which of the following permission requirements? (Choose three.)",
+        options: [
+            "Roles",
+            "Conditional Expressions",
+            "Assignment Rules",
+            "Scripts",
+            "User Criteria",
+            "Groups"
+        ],
+        correctIndex: [0, 1, 3],
+        explanation: "Access Control: Roles, Conditional Expressions, Scripts.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Access Control: Roles Conditions Scripts"
+    },
+    {
+        id: 64,
+        question: "How do you make a list filter available to everyone?",
+        options: [
+            "Make active, assign a name, and save",
+            "Assign a group, set visibility, and save",
+            "Assign a name, set visibility, and save",
+            "Make active, set visibility, and save"
+        ],
+        correctIndex: 2,
+        explanation: "List filter for all: Assign name, set visibility, save.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Filter for All: Name Visibility Save"
+    },
+    {
+        id: 65,
+        question: "What would NOT appear in the Application Navigator if 'service' is typed into the filter field?",
+        options: [
+            "Configuration > Business Services",
+            "Self-Service > Knowledge",
+            "Service Portal > Widgets",
+            "Incident > Assigned to me"
+        ],
+        correctIndex: 3,
+        explanation: "Incident > Assigned to me does not appear when filtering 'service'.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Filter Service: No Incident Assigned"
+    },
+    {
+        id: 66,
+        question: "Which of the following is used to categorize, flag, and locate records?",
+        options: [
+            "Search",
+            "Favorites",
+            "Tags",
+            "Bookmarks"
+        ],
+        correctIndex: 2,
+        explanation: "Tags are used to categorize, flag, and locate records.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Categorize: Tags"
+    },
+    {
+        id: 67,
+        question: "Which tool should be used to populate commonly used fields in a form?",
+        options: [
+            "Template",
+            "Reference Qualifier",
+            "Formatter",
+            "Assignment Rule"
+        ],
+        correctIndex: 0,
+        explanation: "Templates populate commonly used fields in a form.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Populate Fields: Template"
+    },
+    {
+        id: 68,
+        question: "What is a Notification?",
+        options: [
+            "A new Knowledge article created by a Business Rule",
+            "A tool for alerting users that events that concern them have occurred",
+            "A message through Connect related to a Change Request",
+            "An email file attachment"
+        ],
+        correctIndex: 1,
+        explanation: "Notifications alert users about relevant events.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Notification: Alert users"
+    },
+    {
+        id: 69,
+        question: "Which one of the following is NOT a type of Visual Task Board?",
+        options: [
+            "Flexible",
+            "Freeform",
+            "Feature",
+            "Guided boards"
+        ],
+        correctIndex: 2,
+        explanation: "Feature is not a type of Visual Task Board.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "VTB: Not Feature"
+    },
+    {
+        id: 70,
+        question: "What are the three components of a filter condition?",
+        options: [
+            "Field, Operator, and Value",
+            "Condition, Operator, and Value",
+            "Field, Condition, and Value",
+            "Field, Operator, and Condition"
+        ],
+        correctIndex: 0,
+        explanation: "Filter condition components: Field, Operator, Value.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Filter: Field Operator Value"
+    },
+    {
+        id: 71,
+        question: "Which one of the following describes the primary function of a Business Rule?",
+        options: [
+            "To generate an email notification to a user based on a specified time",
+            "To automatically populate the short description for an incident",
+            "To standardize data in a field",
+            "To modify or validate forms or record data when conditions are met"
+        ],
+        correctIndex: 3,
+        explanation: "Business Rules modify or validate data when conditions are met.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Business Rule: Modify Validate"
+    },
+    {
+        id: 72,
+        question: "Which one of the following statements is true about the Default Update Set?",
+        options: [
+            "The Default Update Set is locked by default",
+            "The Default Update Set is used for handling customizations",
+            "Changes in the Default Update Set are automatically moved to production",
+            "The Default Update Set is automatically included in all transfer operations"
+        ],
+        correctIndex: 1,
+        explanation: "Default Update Set is used for handling customizations.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Default Update Set: Customizations"
+    },
+    {
+        id: 73,
+        question: "What is a benefit of using flow designer?",
+        options: [
+            "Reduces development costs",
+            "Increases the need for scripting",
+            "Eliminates the need for update sets",
+            "Requires extensive coding knowledge"
+        ],
+        correctIndex: 0,
+        explanation: "Flow Designer reduces development costs.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Flow Designer: Reduce costs"
+    },
+    {
+        id: 74,
+        question: "What module would you use to configure the default sort order of search results in the Service Catalog?",
+        options: [
+            "Search Settings",
+            "Catalog Definitions",
+            "Catalog UI Policies",
+            "Order Guides"
+        ],
+        correctIndex: 1,
+        explanation: "Catalog Definitions configure default sort order for Service Catalog search.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Sort Order: Catalog Definitions"
+    },
+    {
+        id: 75,
+        question: "What is the primary purpose of the Service Catalog?",
+        options: [
+            "To manage IT assets",
+            "To provide a platform for users to request services",
+            "To generate reports on system performance",
+            "To configure system security"
+        ],
+        correctIndex: 1,
+        explanation: "Service Catalog provides a platform for users to request services.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Catalog Purpose: Request services"
+    },
+    {
+        id: 76,
+        question: "Which of the following is true about UI Policies?",
+        options: [
+            "They can only be applied to new records",
+            "They dynamically change the behavior of forms and fields",
+            "They are used to define database triggers",
+            "They require server-side scripts to function"
+        ],
+        correctIndex: 1,
+        explanation: "UI Policies dynamically change form and field behavior.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "UI Policy: Dynamic form behavior"
+    },
+    {
+        id: 77,
+        question: "What does the 'coalesce' option do during data import?",
+        options: [
+            "Combines multiple import sets into one",
+            "Updates an existing record if a match is found, or creates a new one if not",
+            "Deletes duplicate records automatically",
+            "Validates the data format before import"
+        ],
+        correctIndex: 1,
+        explanation: "Coalesce updates existing or creates new records based on matches.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Coalesce: Update or create"
+    },
+    {
+        id: 78,
+        question: "Which field on a form is used to indicate the priority of an incident?",
+        options: [
+            "Urgency",
+            "Impact",
+            "Priority",
+            "Severity"
+        ],
+        correctIndex: 2,
+        explanation: "Priority field indicates the priority of an incident.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Incident Priority: Priority field"
+    },
+    {
+        id: 79,
+        question: "What is the purpose of the 'Assignment Group' field in an incident?",
+        options: [
+            "To assign the incident to a specific user",
+            "To categorize the incident type",
+            "To assign the incident to a group of users for resolution",
+            "To track the incident history"
+        ],
+        correctIndex: 2,
+        explanation: "Assignment Group assigns incidents to a group for resolution.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Assignment Group: Group resolution"
+    },
+    {
+        id: 80,
+        question: "Which of the following can be used to automate the assignment of tasks?",
+        options: [
+            "Business Rules",
+            "UI Policies",
+            "Assignment Rules",
+            "Client Scripts"
+        ],
+        correctIndex: 2,
+        explanation: "Assignment Rules automate task assignments.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Task Automation: Assignment Rules"
+    },
+    {
+        id: 81,
+        question: "What is the default view for a new user in ServiceNow?",
+        options: [
+            "Self-Service",
+            "Essentials",
+            "ITIL",
+            "Administrator"
+        ],
+        correctIndex: 1,
+        explanation: "Default view for new users is Essentials.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Default View: Essentials"
+    },
+    {
+        id: 82,
+        question: "Which of the following is a valid state for an incident?",
+        options: [
+            "Draft",
+            "In Progress",
+            "Archived",
+            "Pending Review"
+        ],
+        correctIndex: 1,
+        explanation: "In Progress is a valid incident state.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Incident State: In Progress"
+    },
+    {
+        id: 83,
+        question: "What is the purpose of the 'Activity Stream' in a record?",
+        options: [
+            "To display a timeline of all updates and comments",
+            "To show the current workflow status",
+            "To list all related incidents",
+            "To provide a summary of the record"
+        ],
+        correctIndex: 0,
+        explanation: "Activity Stream shows a timeline of updates and comments.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Activity Stream: Updates Comments"
+    },
+    {
+        id: 84,
+        question: "Which role is required to create and manage reports in ServiceNow?",
+        options: [
+            "itil",
+            "report_user",
+            "admin",
+            "catalog_admin"
+        ],
+        correctIndex: 1,
+        explanation: "report_user role is required for creating and managing reports.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Reports Role: report_user"
+    },
+    {
+        id: 85,
+        question: "What is the function of the 'Reference' field type?",
+        options: [
+            "To store a URL link",
+            "To create a relationship to another table",
+            "To allow multiple selections",
+            "To store encrypted data"
+        ],
+        correctIndex: 1,
+        explanation: "Reference field creates a relationship to another table.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Reference: Table relationship"
+    },
+    {
+        id: 86,
+        question: "Which of the following is used to schedule a report to run automatically?",
+        options: [
+            "Report Scheduler",
+            "Dashboard Scheduler",
+            "Email Notification",
+            "Workflow Scheduler"
+        ],
+        correctIndex: 0,
+        explanation: "Report Scheduler is used to schedule reports to run automatically.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "Report Schedule: Report Scheduler"
+    },
+    {
+        id: 87,
+        question: "What is the purpose of the 'SLA' (Service Level Agreement) in ServiceNow?",
+        options: [
+            "To define the cost of services",
+            "To set performance targets and measure compliance",
+            "To manage user permissions",
+            "To create custom forms"
+        ],
+        correctIndex: 1,
+        explanation: "SLA sets performance targets and measures compliance.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "SLA: Performance targets"
+    },
+    {
+        id: 88,
+        question: "Which module is used to manage user accounts and profiles?",
+        options: [
+            "User Administration",
+            "Group Management",
+            "Role Management",
+            "Profile Settings"
+        ],
+        correctIndex: 0,
+        explanation: "User Administration manages user accounts and profiles.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "User Management: User Administration"
+    },
+    {
+        id: 89,
+        question: "What is the primary function of the 'Configuration Management Database' (CMDB)?",
+        options: [
+            "To store financial data",
+            "To maintain a repository of all configuration items and their relationships",
+            "To manage user authentication",
+            "To generate automated emails"
+        ],
+        correctIndex: 1,
+        explanation: "CMDB maintains a repository of configuration items and relationships.",
+        weight: "Other Topics (42%)",
+        category: "Other Topics",
+        memorizationTip: "CMDB: Configuration items relationships"
     }
 ];
 
@@ -2008,3 +2227,4 @@ function saveProgress() {
 
 // Initialize the app when page loads
 window.addEventListener('load', initApp);
+
